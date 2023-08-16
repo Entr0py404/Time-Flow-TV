@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,7 +30,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -104,29 +104,29 @@
     <Import Include="WMPLib" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.Designer.vb">
-      <DependentUpon>About.vb</DependentUpon>
+    <Compile Include="Form_About.Designer.vb">
+      <DependentUpon>Form_About.vb</DependentUpon>
     </Compile>
-    <Compile Include="About.vb">
+    <Compile Include="Form_About.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChannelContent.Designer.vb">
-      <DependentUpon>ChannelContent.vb</DependentUpon>
+    <Compile Include="Form_ChannelContent.Designer.vb">
+      <DependentUpon>Form_ChannelContent.vb</DependentUpon>
     </Compile>
-    <Compile Include="ChannelContent.vb">
+    <Compile Include="Form_ChannelContent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Channels.Designer.vb">
-      <DependentUpon>Channels.vb</DependentUpon>
+    <Compile Include="Form_Statistics.Designer.vb">
+      <DependentUpon>Form_Statistics.vb</DependentUpon>
     </Compile>
-    <Compile Include="Channels.vb">
+    <Compile Include="Form_Statistics.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.vb">
+    <Compile Include="Form_Main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.vb">
-      <DependentUpon>MainForm.vb</DependentUpon>
+    <Compile Include="Form_Main.Designer.vb">
+      <DependentUpon>Form_Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuStripColors.vb" />
@@ -148,17 +148,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="About.resx">
-      <DependentUpon>About.vb</DependentUpon>
+    <EmbeddedResource Include="Form_About.resx">
+      <DependentUpon>Form_About.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChannelContent.resx">
-      <DependentUpon>ChannelContent.vb</DependentUpon>
+    <EmbeddedResource Include="Form_ChannelContent.resx">
+      <DependentUpon>Form_ChannelContent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Channels.resx">
-      <DependentUpon>Channels.vb</DependentUpon>
+    <EmbeddedResource Include="Form_Statistics.resx">
+      <DependentUpon>Form_Statistics.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.vb</DependentUpon>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -179,26 +179,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AxWMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TV1.png" />
@@ -229,6 +209,24 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

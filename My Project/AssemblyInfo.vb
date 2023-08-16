@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Time Flow TV")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Entropy Software")>
+<Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("Time Flow TV")>
 <Assembly: AssemblyCopyright("MIT")>
 <Assembly: AssemblyTrademark("")>

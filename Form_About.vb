@@ -1,10 +1,10 @@
-﻿Public Class About
+﻿Public Class Form_About
     Private targetOpacity As Double = 0.8
     Private currentOpacity As Double = 0.0
     ' About - Load
     Private Sub About_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label_Version.Text = "v" & My.Application.Info.Version.ToString
-        Label_WMPVersion.Text = "WMP v" & MainForm.MediaPlayer.versionInfo
+        Label_WMPVersion.Text = "WMP v" & Form_Main.MediaPlayer.versionInfo
 
         Me.Opacity = 0.2
         currentOpacity = Me.Opacity
