@@ -32,9 +32,9 @@
     'Timer1 - Tick
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         'Dim roundedFrameRate As Integer = CInt(Math.Round(MainForm.MediaPlayer.network.frameRate, 1))
-
-        Label1.Text = "Frame Rate: " & Form_Main.MediaPlayer.network.frameRate \ 100
-
+        If Not Form_Main.MediaPlayer.network.frameRate = 0 Then
+            Label1.Text = "Frame Rate: " & Form_Main.MediaPlayer.network.frameRate \ 100
+        End If
         Label2.Text = "Encoded Frame Rate: " & Form_Main.MediaPlayer.network.encodedFrameRate
         Label3.Text = "Frames Skipped: " & Form_Main.MediaPlayer.network.framesSkipped
 
