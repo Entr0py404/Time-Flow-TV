@@ -31,11 +31,9 @@ Public Class Form_Main
 
     Private currentChannelCFG As String = ""
 
-    'Dim i_test As Integer = 48
-
     Dim OriginalPanelSize As New Size
-
     Dim DefaultChannelSize As Integer = 119
+    Dim MinSizePanelChannels As Integer = 398
 
     ' MainForm - Load
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -1565,8 +1563,8 @@ Public Class Form_Main
             Splitter1.BackColor = Color.FromArgb(28, 30, 34)
 
             If Panel_ChannelsList.Dock = DockStyle.Right Then
-                Splitter1.MinSize = 398
-                Panel_ChannelsList.Width = 398
+                Splitter1.MinSize = MinSizePanelChannels
+                Panel_ChannelsList.Width = MinSizePanelChannels
             Else
                 Splitter1.MinSize = 84
                 Panel_ChannelsList.Height = 314
@@ -1622,16 +1620,16 @@ Public Class Form_Main
             Panel_ChannelsList.SendToBack()
             Splitter1.BringToFront()
 
-            Splitter1.MinSize = 398
+            Splitter1.MinSize = MinSizePanelChannels
 
             If FixedVerticalToolStripMenuItem.Checked Then
-                Panel_ChannelsList.Width = 398
+                Panel_ChannelsList.Width = MinSizePanelChannels
             Else
 
-                If OriginalPanelHeight > 398 Then
+                If OriginalPanelHeight > MinSizePanelChannels Then
                     Panel_ChannelsList.Width = OriginalPanelHeight
                 Else
-                    Panel_ChannelsList.Width = 398
+                    Panel_ChannelsList.Width = MinSizePanelChannels
                 End If
             End If
 
