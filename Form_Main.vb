@@ -31,7 +31,11 @@ Public Class Form_Main
 
     Private currentChannelCFG As String = ""
 
-    Dim i_test As Integer = 48
+    'Dim i_test As Integer = 48
+
+    Dim OriginalPanelSize As New Size
+
+    Dim DefaultChannelSize As Integer = 119
 
     ' MainForm - Load
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -242,34 +246,46 @@ Public Class Form_Main
             UpdateURLsList()
 
             If AutoCloseChannelsListToolStripMenuItem.Checked Then
-                SplitContainer1.Panel2Collapsed = True
+                PanelChannelsListVisiblityWorkAround(False)
             End If
         End If
     End Sub
 
     ' ChannelImage - MouseEnter
     Private Sub ChannelImage_MouseEnter(sender As Object, e As EventArgs)
-        If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, Label)
-            DirectCast(sender, PictureBox).BackColor = Color.DodgerBlue ' DirectCast(sender, Label)
+        If CompactToolStripMenuItem.Checked Then
+            If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
+                DirectCast(sender, PictureBox).BackColor = Color.DodgerBlue ' DirectCast(sender, PictureBox)
+            End If
+        Else
+            If Not DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
+                DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.DodgerBlue ' DirectCast(sender, PictureBox)
+            End If
         End If
     End Sub
 
     ' ChannelImage - MouseLeave
     Private Sub ChannelImage_MouseLeave(sender As Object, e As EventArgs)
-        If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, Label)
-            DirectCast(sender, PictureBox).BackColor = Color.FromArgb(28, 30, 34) ' DirectCast(sender, Label)
+        If CompactToolStripMenuItem.Checked Then
+            If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
+                DirectCast(sender, PictureBox).BackColor = Color.FromArgb(28, 30, 34) ' DirectCast(sender, PictureBox)
+            End If
+        Else
+            If Not DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
+                DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.FromArgb(28, 30, 34) ' DirectCast(sender, PictureBox)
+            End If
         End If
     End Sub
 
     ' ChannelImage - Click
     Private Sub ChannelImage_Click(sender As Object, e As MouseEventArgs)
         If e.Button = MouseButtons.Left Then
-            currentChannel = FlowLayoutPanel_Channels.Controls.GetChildIndex(DirectCast(sender, PictureBox).Parent) ' DirectCast(sender, Label)
+            currentChannel = FlowLayoutPanel_Channels.Controls.GetChildIndex(DirectCast(sender, PictureBox).Parent) ' DirectCast(sender, PictureBox)
             ColorizeCurrentChannel()
             UpdateURLsList()
 
             If AutoCloseChannelsListToolStripMenuItem.Checked Then
-                SplitContainer1.Panel2Collapsed = True
+                PanelChannelsListVisiblityWorkAround(False)
             End If
         End If
     End Sub
@@ -355,18 +371,6 @@ Public Class Form_Main
     ' MainForm - KeyDown
     Private Sub MainForm_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         HotKeys(e.KeyCode)
-        'Console.WriteLine("MainForm_KeyDown")
-
-        If e.KeyCode = Keys.PageUp Then
-            i_test += 3
-            Testing(i_test)
-            Console.WriteLine(i_test)
-        ElseIf e.KeyCode = Keys.PageDown Then
-            i_test -= 3
-            Testing(i_test)
-            Console.WriteLine(i_test)
-        End If
-
     End Sub
 
     ' PictureBox_Intro - KeyDown
@@ -677,7 +681,7 @@ Public Class Form_Main
 
         ' Panel
         Dim ChannelPanel = New Panel
-        ChannelPanel.Size = New Size(348, 48)
+        ChannelPanel.Size = New Size(348, DefaultChannelSize)
         ChannelPanel.BackColor = Color.FromArgb(28, 30, 34)
         ChannelPanel.Name = "Panel_Channel"
         ChannelPanel.Margin = New Padding(12, 6, 3, 6)
@@ -704,17 +708,17 @@ Public Class Form_Main
             ChannelNumberLabel.ForeColor = Color.WhiteSmoke
         End If
         ChannelNumberLabel.Font = New Font("Microsoft Sans Serif", 11.25!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
-        ChannelNumberLabel.Cursor = Cursors.Hand
 
 
         ' PictureBox
         Dim ChannelPictureBox = New PictureBox
         ChannelPictureBox.Dock = DockStyle.Left
-        ChannelPictureBox.Size = New Size(48, 48)
+        ChannelPictureBox.Size = New Size(DefaultChannelSize, DefaultChannelSize)
         ChannelPictureBox.SizeMode = PictureBoxSizeMode.Zoom
         ChannelPictureBox.Name = "PictureBox_ChannelLogo"
         ChannelPictureBox.Text = ChannelFilePath
         ChannelPictureBox.ContextMenuStrip = ContextMenuStrip_Channel
+        ChannelPictureBox.Cursor = Cursors.Hand
 
         If File.Exists(ChannelImagePath) Then
             ChannelPictureBox.Image = SafeImageFromFile(ChannelImagePath)
@@ -749,6 +753,10 @@ Public Class Form_Main
 
         End If
 
+        AddHandler ChannelPictureBox.MouseEnter, AddressOf ChannelImage_MouseEnter
+        AddHandler ChannelPictureBox.MouseLeave, AddressOf ChannelImage_MouseLeave
+        AddHandler ChannelPictureBox.MouseClick, AddressOf ChannelImage_Click
+
         ' Label
         Dim ChannelLabel = New Label
         ChannelLabel.AutoEllipsis = True
@@ -772,6 +780,7 @@ Public Class Form_Main
         AddHandler ChannelLabel.MouseEnter, AddressOf ChannelLabel_MouseEnter
         AddHandler ChannelLabel.MouseLeave, AddressOf ChannelLabel_MouseLeave
         AddHandler ChannelLabel.MouseClick, AddressOf ChannelLabel_Click
+
     End Sub
 
     ' SafeImageFromFile()
@@ -816,20 +825,20 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' Testing
-    Private Sub Testing(ChannelImageSize As Integer)
+    ' ResizeChannels
+    Private Sub ResizeChannels(ChannelImageSize As Integer)
         If CompactToolStripMenuItem.Checked Then
             FlowLayoutPanel_Channels.SuspendLayout()
 
-            If ChannelImageSize = 80 Then
-                ' Panel_ChannelsList.Width = 388 + 22
-            ElseIf ChannelImageSize = 64 Then
-                '  Panel_ChannelsList.Width = 388 - 42
-            ElseIf ChannelImageSize = 48 Then
-                ' Panel_ChannelsList.Width = 388 - 42
-            ElseIf ChannelImageSize = 32 Then
-                '  Panel_ChannelsList.Width = 388 - 24
-            End If
+            'If ChannelImageSize = 80 Then
+            ' Panel_ChannelsList.Width = 388 + 22
+            'ElseIf ChannelImageSize = 64 Then
+            '  Panel_ChannelsList.Width = 388 - 42
+            'ElseIf ChannelImageSize = 48 Then
+            ' Panel_ChannelsList.Width = 388 - 42
+            'ElseIf ChannelImageSize = 32 Then
+            '  Panel_ChannelsList.Width = 388 - 24
+            'End If
 
             For i = 0 To FlowLayoutPanel_Channels.Controls.Count - 1
                 FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(0).Hide()
@@ -840,33 +849,33 @@ Public Class Form_Main
                 ToolTip1.SetToolTip(FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1), FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(0).Text())
 
 
-                FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).Cursor = Cursors.Hand
+                'FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).Cursor = Cursors.Hand
             Next
             FlowLayoutPanel_Channels.ResumeLayout()
         Else
             FlowLayoutPanel_Channels.SuspendLayout()
 
-            If ChannelImageSize = 80 Then
-                'Panel_ChannelsList.Width = 388 + 64
-            Else
-                'Panel_ChannelsList.Width = 388
-            End If
+            'If ChannelImageSize = 80 Then
+            'Panel_ChannelsList.Width = 388 + 64
+            'Else
+            'Panel_ChannelsList.Width = 388
+            'End If
 
             For i = 0 To FlowLayoutPanel_Channels.Controls.Count - 1
                 FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(0).Show()
                 FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(2).Show()
 
-                If ChannelImageSize = 80 Then
-                    FlowLayoutPanel_Channels.Controls.Item(i).Size = New Size(348 + 64, ChannelImageSize)
-                Else
-                    FlowLayoutPanel_Channels.Controls.Item(i).Size = New Size(348, ChannelImageSize)
-                End If
+                'If ChannelImageSize = 80 Then
+                'FlowLayoutPanel_Channels.Controls.Item(i).Size = New Size(348 + 64, ChannelImageSize)
+                'Else
+                FlowLayoutPanel_Channels.Controls.Item(i).Size = New Size(348, ChannelImageSize)
+                'End If
 
                 FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).Size = New Size(ChannelImageSize, ChannelImageSize)
                 ToolTip1.SetToolTip(FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1), "")
 
 
-                FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).Cursor = Cursors.Default
+                'FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).Cursor = Cursors.Default
             Next
 
             FlowLayoutPanel_Channels.ResumeLayout()
@@ -887,7 +896,8 @@ Public Class Form_Main
 
         ShowPlayerControlsToolStripMenuItem.Checked = False
 
-        SplitContainer1.Panel2Collapsed = True
+        'SplitContainer1.Panel2Collapsed = True
+        PanelChannelsListVisiblityWorkAround(False)
 
         If MediaAspectAutoInPopoutModeToolStripMenuItem1.Checked Then
             CalculateVideoAspectRatio_ResizeToAspectResolution()
@@ -956,10 +966,11 @@ Public Class Form_Main
 
     ' ChannelsList - ToolStripMenuItem1 - Click
     Private Sub ChannelsListToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ChannelsListToolStripMenuItem1.Click
-        If SplitContainer1.Panel2Collapsed = False Then
-            SplitContainer1.Panel2Collapsed = True
+        If Splitter1.Visible = True Then
+
+            PanelChannelsListVisiblityWorkAround(False)
         Else
-            SplitContainer1.Panel2Collapsed = False
+            PanelChannelsListVisiblityWorkAround(True)
         End If
     End Sub
 
@@ -970,11 +981,7 @@ Public Class Form_Main
 
     ' ChannelsList - ToolStripMenuItem - Click
     Private Sub ChannelsListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChannelsListToolStripMenuItem.Click
-        If SplitContainer1.Panel2Collapsed = False Then
-            SplitContainer1.Panel2Collapsed = True
-        Else
-            SplitContainer1.Panel2Collapsed = False
-        End If
+        ChannelsListToolStripMenuItem1.PerformClick()
     End Sub
 
     ' NormalPopoutToggleMode - ToolStripMenuItem - Click
@@ -1162,7 +1169,7 @@ Public Class Form_Main
         If Scale1ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale1ToolStripMenuItem.Checked = True
-            Testing(45)
+            ResizeChannels(45)
         End If
     End Sub
 
@@ -1171,7 +1178,7 @@ Public Class Form_Main
         If Scale2ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale2ToolStripMenuItem.Checked = True
-            Testing(71)
+            ResizeChannels(71)
         End If
     End Sub
 
@@ -1180,7 +1187,7 @@ Public Class Form_Main
         If Scale3ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale3ToolStripMenuItem.Checked = True
-            Testing(103)
+            ResizeChannels(103)
         End If
     End Sub
 
@@ -1189,7 +1196,7 @@ Public Class Form_Main
         If Scale4ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale4ToolStripMenuItem.Checked = True
-            Testing(119)
+            ResizeChannels(119)
         End If
     End Sub
 
@@ -1198,7 +1205,7 @@ Public Class Form_Main
         If Scale5ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale5ToolStripMenuItem.Checked = True
-            Testing(135)
+            ResizeChannels(135)
         End If
     End Sub
 
@@ -1207,7 +1214,7 @@ Public Class Form_Main
         If Scale6ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale6ToolStripMenuItem.Checked = True
-            Testing(167)
+            ResizeChannels(167)
         End If
     End Sub
 
@@ -1216,7 +1223,7 @@ Public Class Form_Main
         If Scale7ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale7ToolStripMenuItem.Checked = True
-            Testing(215)
+            ResizeChannels(215)
         End If
     End Sub
 
@@ -1225,7 +1232,7 @@ Public Class Form_Main
         If Scale8ToolStripMenuItem.Checked = False Then
             UncheckAllSizes()
             Scale8ToolStripMenuItem.Checked = True
-            Testing(295)
+            ResizeChannels(295)
         End If
     End Sub
 
@@ -1245,50 +1252,50 @@ Public Class Form_Main
     ' Compact - ToolStripMenuItem - Click
     Private Sub CompactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompactToolStripMenuItem.Click
 
-        If CompactToolStripMenuItem.Checked Then
-            For i = 0 To FlowLayoutPanel_Channels.Controls.Count - 1
-                AddHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseEnter, AddressOf ChannelImage_MouseEnter
-                AddHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseLeave, AddressOf ChannelImage_MouseLeave
-                AddHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseClick, AddressOf ChannelImage_Click
-            Next
-        Else
-            For i = 0 To FlowLayoutPanel_Channels.Controls.Count - 1
-                RemoveHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseEnter, AddressOf ChannelImage_MouseEnter
-                RemoveHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseLeave, AddressOf ChannelImage_MouseLeave
-                RemoveHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseClick, AddressOf ChannelImage_Click
-            Next
-        End If
+        'If CompactToolStripMenuItem.Checked Then
+        'For i = 0 To FlowLayoutPanel_Channels.Controls.Count - 1
+        'AddHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseEnter, AddressOf ChannelImage_MouseEnter
+        'AddHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseLeave, AddressOf ChannelImage_MouseLeave
+        'AddHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseClick, AddressOf ChannelImage_Click
+        'Next
+        'Else
+        'For i = 0 To FlowLayoutPanel_Channels.Controls.Count - 1
+        'RemoveHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseEnter, AddressOf ChannelImage_MouseEnter
+        'RemoveHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseLeave, AddressOf ChannelImage_MouseLeave
+        'RemoveHandler FlowLayoutPanel_Channels.Controls.Item(i).Controls.Item(1).MouseClick, AddressOf ChannelImage_Click
+        'Next
+        'End If
 
         If Scale1ToolStripMenuItem.Checked = True Then
-            Testing(45)
+            ResizeChannels(45)
         End If
 
         If Scale2ToolStripMenuItem.Checked = True Then
-            Testing(71)
+            ResizeChannels(71)
         End If
 
         If Scale3ToolStripMenuItem.Checked = True Then
-            Testing(103)
+            ResizeChannels(103)
         End If
 
         If Scale4ToolStripMenuItem.Checked = True Then
-            Testing(119)
+            ResizeChannels(119)
         End If
 
         If Scale5ToolStripMenuItem.Checked = True Then
-            Testing(135)
+            ResizeChannels(135)
         End If
 
         If Scale6ToolStripMenuItem.Checked = True Then
-            Testing(167)
+            ResizeChannels(167)
         End If
 
         If Scale7ToolStripMenuItem.Checked = True Then
-            Testing(215)
+            ResizeChannels(215)
         End If
 
         If Scale8ToolStripMenuItem.Checked = True Then
-            Testing(295)
+            ResizeChannels(295)
         End If
     End Sub
 
@@ -1304,7 +1311,7 @@ Public Class Form_Main
 
     ' X - ToolStripMenuItem - Click
     Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseChannelsListToolStripMenuItem.Click
-        SplitContainer1.Panel2Collapsed = True
+        PanelChannelsListVisiblityWorkAround(False)
     End Sub
 
     ' ChannelContentDurationTotal - ToolStripMenuItem - Click
@@ -1400,7 +1407,7 @@ Public Class Form_Main
                         FlowLayoutPanel_Channels.ScrollControlIntoView(FlowLayoutPanel_Channels.Controls.Item(currentChannel))
 
                         If AutoCloseChannelsListToolStripMenuItem.Checked Then
-                            SplitContainer1.Panel2Collapsed = False
+                            PanelChannelsListVisiblityWorkAround(False)
                             Panel_Search.Hide()
                         End If
 
@@ -1554,17 +1561,19 @@ Public Class Form_Main
             VerticalToolStripMenuItem.Checked = False
             HorizontalToolStripMenuItem.Checked = False
             FixedVerticalToolStripMenuItem.Checked = True
-            SplitContainer1.IsSplitterFixed = True
+            Splitter1.Enabled = False
+            Splitter1.BackColor = Color.FromArgb(28, 30, 34)
 
-            If SplitContainer1.Orientation = Orientation.Vertical Then
-                SplitContainer1.Panel1MinSize = 388
-                SplitContainer1.SplitterDistance = SplitContainer1.Panel2.Width + SplitContainer1.Panel1.Width
+            If Panel_ChannelsList.Dock = DockStyle.Right Then
+                Splitter1.MinSize = 398
+                Panel_ChannelsList.Width = 398
             Else
-                'SplitContainer1.Panel1MinSize = 0
+                Splitter1.MinSize = 84
+                Panel_ChannelsList.Height = 314
             End If
 
             ForceLayoutUpate(FlowDirection.LeftToRight)
-        End If
+            End If
     End Sub
 
     ' Vertical - ToolStripMenuItem - Click
@@ -1573,7 +1582,8 @@ Public Class Form_Main
             FixedVerticalToolStripMenuItem.Checked = False
             HorizontalToolStripMenuItem.Checked = False
             VerticalToolStripMenuItem.Checked = True
-            SplitContainer1.IsSplitterFixed = False
+            Splitter1.Enabled = True
+            Splitter1.BackColor = Color.DodgerBlue
             ForceLayoutUpate(FlowDirection.LeftToRight)
         End If
     End Sub
@@ -1584,7 +1594,8 @@ Public Class Form_Main
             VerticalToolStripMenuItem.Checked = False
             FixedVerticalToolStripMenuItem.Checked = False
             HorizontalToolStripMenuItem.Checked = True
-            SplitContainer1.IsSplitterFixed = False
+            Splitter1.Enabled = True
+            Splitter1.BackColor = Color.DodgerBlue
             ForceLayoutUpate(FlowDirection.TopDown)
         End If
     End Sub
@@ -1602,14 +1613,21 @@ Public Class Form_Main
     'Right - ToolStripMenuItem - Click
     Private Sub RightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RightToolStripMenuItem.Click
         If RightToolStripMenuItem.Checked = False Then
+            Dim OriginalPanelHeight As Integer = Panel_ChannelsList.Height
+
             BottomToolStripMenuItem.Checked = False
             RightToolStripMenuItem.Checked = True
-            SplitContainer1.Orientation = Orientation.Vertical
+            Panel_ChannelsList.Dock = DockStyle.Right
+            Splitter1.Dock = DockStyle.Right
+            Panel_ChannelsList.SendToBack()
+            Splitter1.BringToFront()
 
-            If SplitContainer1.IsSplitterFixed = True Then
-                SplitContainer1.Panel2MinSize = 388
+            Splitter1.MinSize = 398
+
+            If FixedVerticalToolStripMenuItem.Checked Then
+                Panel_ChannelsList.Width = 398
             Else
-                SplitContainer1.SplitterDistance = SplitContainer1.Panel2.Width + SplitContainer1.Panel1.Width
+                Panel_ChannelsList.Width = OriginalPanelHeight
             End If
 
         End If
@@ -1618,22 +1636,65 @@ Public Class Form_Main
     ' Bottom - ToolStripMenuItem - Click
     Private Sub BottomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BottomToolStripMenuItem.Click
         If BottomToolStripMenuItem.Checked = False Then
+            Dim OriginalPanelWidth As Integer = Panel_ChannelsList.Width
+
             RightToolStripMenuItem.Checked = False
             BottomToolStripMenuItem.Checked = True
-            SplitContainer1.Orientation = Orientation.Horizontal
+            Panel_ChannelsList.Dock = DockStyle.Bottom
+            Splitter1.Dock = DockStyle.Bottom
+            Panel_ChannelsList.BringToFront()
+            Splitter1.BringToFront()
 
-            If SplitContainer1.IsSplitterFixed = True Then
-                SplitContainer1.Panel2MinSize = 336
+            MediaPlayer.BringToFront()
+            PictureBox_Media.BringToFront()
+
+            Splitter1.MinSize = 84
+
+            If FixedVerticalToolStripMenuItem.Checked Then
+                Panel_ChannelsList.Height = 314
             Else
-                SplitContainer1.SplitterDistance = SplitContainer1.Panel2.Width + SplitContainer1.Panel1.Height
+                Panel_ChannelsList.Height = CInt(OriginalPanelWidth / 2)
             End If
-            '625'336
+
         End If
     End Sub
 
-    Private Sub TestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestToolStripMenuItem.Click
-        Console.WriteLine(SplitContainer1.SplitterDistance)
-        Console.WriteLine(MediaPlayer.network.frameRate.ToString)
-        Console.WriteLine(SplitContainer1.Panel2.Height)
+    '
+    Private Sub TestToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        'Console.WriteLine(SplitContainer1.SplitterDistance)
+        'Console.WriteLine(MediaPlayer.network.frameRate.ToString)
+        Console.WriteLine(Panel_ChannelsList.Size)
+    End Sub
+
+    ' PanelChannelsListVisiblityWorkAround
+    Private Sub PanelChannelsListVisiblityWorkAround(Visiblity As Boolean)
+        If Visiblity = True Then
+            Splitter1.Visible = True
+            Panel_ChannelsList.Size = OriginalPanelSize
+        Else
+            OriginalPanelSize = Panel_ChannelsList.Size
+            Splitter1.Visible = False
+
+
+            Dim targetControl As Control = FlowLayoutPanel_Channels.Controls.Item(currentChannel)
+
+            If Not targetControl.Visible Then
+                ' If the control is not visible, scroll it into view
+                FlowLayoutPanel_Channels.ScrollControlIntoView(targetControl)
+            Else
+                ' If the control is visible, check if it's within the visible area
+                Dim visibleRectangle As Rectangle = New Rectangle(FlowLayoutPanel_Channels.HorizontalScroll.Value, FlowLayoutPanel_Channels.VerticalScroll.Value, FlowLayoutPanel_Channels.ClientSize.Width, FlowLayoutPanel_Channels.ClientSize.Height)
+
+                If Not visibleRectangle.Contains(targetControl.Bounds) Then
+                    FlowLayoutPanel_Channels.ScrollControlIntoView(targetControl)
+                End If
+            End If
+
+            If Panel_ChannelsList.Dock = DockStyle.Right Then
+                Panel_ChannelsList.Width = 0
+            Else
+                Panel_ChannelsList.Height = 0
+            End If
+        End If
     End Sub
 End Class

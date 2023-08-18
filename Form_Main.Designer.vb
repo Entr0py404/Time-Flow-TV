@@ -104,14 +104,13 @@ Partial Class Form_Main
         Me.CloseChannelsListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FavoritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_OpeningFade = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip_Channel = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddRemoveFavoritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MediaPlayer = New AxWMPLib.AxWindowsMediaPlayer()
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.PictureBox_Media = New System.Windows.Forms.PictureBox()
+        Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.ContextMenuStrip_MediaPlayer.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip_PlayerStatus.SuspendLayout()
@@ -121,10 +120,6 @@ Partial Class Form_Main
         Me.MenuStrip_Channels.SuspendLayout()
         Me.ContextMenuStrip_Channel.SuspendLayout()
         CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer1.Panel1.SuspendLayout()
-        Me.SplitContainer1.Panel2.SuspendLayout()
-        Me.SplitContainer1.SuspendLayout()
         CType(Me.PictureBox_Media, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -278,7 +273,7 @@ Partial Class Form_Main
         Me.FlowLayoutPanel_Channels.Location = New System.Drawing.Point(0, 84)
         Me.FlowLayoutPanel_Channels.Name = "FlowLayoutPanel_Channels"
         Me.FlowLayoutPanel_Channels.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.FlowLayoutPanel_Channels.Size = New System.Drawing.Size(396, 357)
+        Me.FlowLayoutPanel_Channels.Size = New System.Drawing.Size(398, 597)
         Me.FlowLayoutPanel_Channels.TabIndex = 1
         '
         'MenuStrip1
@@ -288,7 +283,7 @@ Partial Class Form_Main
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ChannelsToolStripMenuItem1, Me.PopoutModeToolStripMenuItem1, Me.InfoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(944, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(866, 28)
         Me.MenuStrip1.TabIndex = 2
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -489,9 +484,9 @@ Partial Class Form_Main
         '
         Me.StatusStrip_PlayerStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.StatusStrip_PlayerStatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel_CurrentChannelNumber, Me.ToolStripStatusLabel_CurrentChannelName, Me.ToolStripStatusLabel_PlayerStatus})
-        Me.StatusStrip_PlayerStatus.Location = New System.Drawing.Point(0, 469)
+        Me.StatusStrip_PlayerStatus.Location = New System.Drawing.Point(0, 659)
         Me.StatusStrip_PlayerStatus.Name = "StatusStrip_PlayerStatus"
-        Me.StatusStrip_PlayerStatus.Size = New System.Drawing.Size(944, 22)
+        Me.StatusStrip_PlayerStatus.Size = New System.Drawing.Size(866, 22)
         Me.StatusStrip_PlayerStatus.SizingGrip = False
         Me.StatusStrip_PlayerStatus.TabIndex = 3
         Me.StatusStrip_PlayerStatus.Text = "StatusStrip1"
@@ -519,10 +514,10 @@ Partial Class Form_Main
         Me.Panel_ChannelsList.Controls.Add(Me.FlowLayoutPanel_Channels)
         Me.Panel_ChannelsList.Controls.Add(Me.Panel_Search)
         Me.Panel_ChannelsList.Controls.Add(Me.MenuStrip_Channels)
-        Me.Panel_ChannelsList.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel_ChannelsList.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_ChannelsList.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel_ChannelsList.Location = New System.Drawing.Point(866, 0)
         Me.Panel_ChannelsList.Name = "Panel_ChannelsList"
-        Me.Panel_ChannelsList.Size = New System.Drawing.Size(396, 441)
+        Me.Panel_ChannelsList.Size = New System.Drawing.Size(398, 681)
         Me.Panel_ChannelsList.TabIndex = 41
         '
         'Panel_Search
@@ -537,7 +532,7 @@ Partial Class Form_Main
         Me.Panel_Search.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel_Search.Location = New System.Drawing.Point(0, 29)
         Me.Panel_Search.Name = "Panel_Search"
-        Me.Panel_Search.Size = New System.Drawing.Size(396, 55)
+        Me.Panel_Search.Size = New System.Drawing.Size(398, 55)
         Me.Panel_Search.TabIndex = 2
         Me.Panel_Search.Visible = False
         '
@@ -579,7 +574,7 @@ Partial Class Form_Main
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(396, 1)
+        Me.Panel2.Size = New System.Drawing.Size(398, 1)
         Me.Panel2.TabIndex = 6
         '
         'Label_SearchByChannelName
@@ -620,10 +615,10 @@ Partial Class Form_Main
         '
         Me.MenuStrip_Channels.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.MenuStrip_Channels.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip_Channels.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.CloseChannelsListToolStripMenuItem, Me.SearchToolStripMenuItem, Me.FavoritesToolStripMenuItem, Me.TestToolStripMenuItem})
+        Me.MenuStrip_Channels.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.CloseChannelsListToolStripMenuItem, Me.SearchToolStripMenuItem, Me.FavoritesToolStripMenuItem})
         Me.MenuStrip_Channels.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip_Channels.Name = "MenuStrip_Channels"
-        Me.MenuStrip_Channels.Size = New System.Drawing.Size(396, 29)
+        Me.MenuStrip_Channels.Size = New System.Drawing.Size(398, 29)
         Me.MenuStrip_Channels.TabIndex = 0
         '
         'ToolStripMenuItem1
@@ -731,8 +726,6 @@ Partial Class Form_Main
         'Scale2ToolStripMenuItem
         '
         Me.Scale2ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Scale2ToolStripMenuItem.Checked = True
-        Me.Scale2ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.Scale2ToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Scale2ToolStripMenuItem.Name = "Scale2ToolStripMenuItem"
         Me.Scale2ToolStripMenuItem.Size = New System.Drawing.Size(89, 26)
@@ -749,6 +742,8 @@ Partial Class Form_Main
         'Scale4ToolStripMenuItem
         '
         Me.Scale4ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Scale4ToolStripMenuItem.Checked = True
+        Me.Scale4ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.Scale4ToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Scale4ToolStripMenuItem.Name = "Scale4ToolStripMenuItem"
         Me.Scale4ToolStripMenuItem.Size = New System.Drawing.Size(89, 26)
@@ -808,13 +803,6 @@ Partial Class Form_Main
         Me.FavoritesToolStripMenuItem.Size = New System.Drawing.Size(84, 25)
         Me.FavoritesToolStripMenuItem.Text = "Favorites"
         '
-        'TestToolStripMenuItem
-        '
-        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(47, 25)
-        Me.TestToolStripMenuItem.Text = "test"
-        Me.TestToolStripMenuItem.Visible = False
-        '
         'ToolTip1
         '
         Me.ToolTip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
@@ -847,59 +835,49 @@ Partial Class Form_Main
         Me.MediaPlayer.ContextMenuStrip = Me.ContextMenuStrip_MediaPlayer
         Me.MediaPlayer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MediaPlayer.Enabled = True
-        Me.MediaPlayer.Location = New System.Drawing.Point(0, 0)
+        Me.MediaPlayer.Location = New System.Drawing.Point(0, 28)
         Me.MediaPlayer.Name = "MediaPlayer"
         Me.MediaPlayer.OcxState = CType(resources.GetObject("MediaPlayer.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.MediaPlayer.Size = New System.Drawing.Size(542, 441)
+        Me.MediaPlayer.Size = New System.Drawing.Size(866, 631)
         Me.MediaPlayer.TabIndex = 40
         Me.MediaPlayer.TabStop = False
-        '
-        'SplitContainer1
-        '
-        Me.SplitContainer1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
-        Me.SplitContainer1.IsSplitterFixed = True
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 28)
-        Me.SplitContainer1.Name = "SplitContainer1"
-        '
-        'SplitContainer1.Panel1
-        '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.PictureBox_Media)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.MediaPlayer)
-        Me.SplitContainer1.Panel1MinSize = 128
-        '
-        'SplitContainer1.Panel2
-        '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel_ChannelsList)
-        Me.SplitContainer1.Panel2MinSize = 388
-        Me.SplitContainer1.Size = New System.Drawing.Size(944, 441)
-        Me.SplitContainer1.SplitterDistance = 542
-        Me.SplitContainer1.SplitterWidth = 6
-        Me.SplitContainer1.TabIndex = 43
-        Me.SplitContainer1.TabStop = False
         '
         'PictureBox_Media
         '
         Me.PictureBox_Media.BackColor = System.Drawing.Color.Black
         Me.PictureBox_Media.ContextMenuStrip = Me.ContextMenuStrip_MediaPlayer
         Me.PictureBox_Media.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox_Media.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox_Media.Location = New System.Drawing.Point(0, 28)
         Me.PictureBox_Media.Name = "PictureBox_Media"
-        Me.PictureBox_Media.Size = New System.Drawing.Size(542, 441)
+        Me.PictureBox_Media.Size = New System.Drawing.Size(866, 631)
         Me.PictureBox_Media.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox_Media.TabIndex = 42
         Me.PictureBox_Media.TabStop = False
+        '
+        'Splitter1
+        '
+        Me.Splitter1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Splitter1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Splitter1.Enabled = False
+        Me.Splitter1.Location = New System.Drawing.Point(863, 28)
+        Me.Splitter1.MinSize = 398
+        Me.Splitter1.Name = "Splitter1"
+        Me.Splitter1.Size = New System.Drawing.Size(3, 631)
+        Me.Splitter1.TabIndex = 43
+        Me.Splitter1.TabStop = False
         '
         'Form_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(62, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(944, 491)
-        Me.Controls.Add(Me.SplitContainer1)
+        Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.Controls.Add(Me.Splitter1)
+        Me.Controls.Add(Me.PictureBox_Media)
+        Me.Controls.Add(Me.MediaPlayer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.StatusStrip_PlayerStatus)
+        Me.Controls.Add(Me.Panel_ChannelsList)
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -922,10 +900,6 @@ Partial Class Form_Main
         Me.MenuStrip_Channels.PerformLayout()
         Me.ContextMenuStrip_Channel.ResumeLayout(False)
         CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer1.Panel1.ResumeLayout(False)
-        Me.SplitContainer1.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer1.ResumeLayout(False)
         CType(Me.PictureBox_Media, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -991,7 +965,6 @@ Partial Class Form_Main
     Friend WithEvents TextBox_SearchByChannelName As TextBox
     Friend WithEvents Label_SearchByChannelName As Label
     Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents Button_CloseSearch As Button
     Friend WithEvents FavoritesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip_Channel As ContextMenuStrip
@@ -1001,7 +974,6 @@ Partial Class Form_Main
     Friend WithEvents ContentListModeShuffledToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatisticsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents ListStyleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FixedVerticalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerticalToolStripMenuItem As ToolStripMenuItem
@@ -1018,5 +990,6 @@ Partial Class Form_Main
     Friend WithEvents Scale6ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Scale7ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Scale8ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TestToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Splitter1 As Splitter
 End Class
