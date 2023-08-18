@@ -1627,7 +1627,12 @@ Public Class Form_Main
             If FixedVerticalToolStripMenuItem.Checked Then
                 Panel_ChannelsList.Width = 398
             Else
-                Panel_ChannelsList.Width = OriginalPanelHeight
+
+                If OriginalPanelHeight > 398 Then
+                    Panel_ChannelsList.Width = OriginalPanelHeight
+                Else
+                    Panel_ChannelsList.Width = 398
+                End If
             End If
 
         End If

@@ -878,7 +878,6 @@ Partial Class Form_Main
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.StatusStrip_PlayerStatus)
         Me.Controls.Add(Me.Panel_ChannelsList)
-        Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
