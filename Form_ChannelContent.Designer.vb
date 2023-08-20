@@ -23,7 +23,7 @@ Partial Class Form_ChannelContent
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_ChannelContent))
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.ListBox_ChannelContent = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -34,21 +34,21 @@ Partial Class Form_ChannelContent
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ListBox1
+        'ListBox_ChannelContent
         '
-        Me.ListBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.HorizontalScrollbar = True
-        Me.ListBox1.ItemHeight = 16
-        Me.ListBox1.Location = New System.Drawing.Point(0, 78)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.ScrollAlwaysVisible = True
-        Me.ListBox1.Size = New System.Drawing.Size(785, 410)
-        Me.ListBox1.TabIndex = 0
+        Me.ListBox_ChannelContent.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.ListBox_ChannelContent.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox_ChannelContent.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBox_ChannelContent.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox_ChannelContent.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ListBox_ChannelContent.FormattingEnabled = True
+        Me.ListBox_ChannelContent.HorizontalScrollbar = True
+        Me.ListBox_ChannelContent.ItemHeight = 16
+        Me.ListBox_ChannelContent.Location = New System.Drawing.Point(0, 78)
+        Me.ListBox_ChannelContent.Name = "ListBox_ChannelContent"
+        Me.ListBox_ChannelContent.ScrollAlwaysVisible = True
+        Me.ListBox_ChannelContent.Size = New System.Drawing.Size(785, 410)
+        Me.ListBox_ChannelContent.TabIndex = 0
         '
         'Label1
         '
@@ -113,7 +113,7 @@ Partial Class Form_ChannelContent
         Me.ContentListModeSortedToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.ContentListModeSortedToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeSortedToolStripMenuItem.Name = "ContentListModeSortedToolStripMenuItem"
-        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
         Me.ContentListModeSortedToolStripMenuItem.Text = "Sorted"
         '
         'ContentListModeShuffledToolStripMenuItem
@@ -123,7 +123,7 @@ Partial Class Form_ChannelContent
         Me.ContentListModeShuffledToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ContentListModeShuffledToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeShuffledToolStripMenuItem.Name = "ContentListModeShuffledToolStripMenuItem"
-        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
         Me.ContentListModeShuffledToolStripMenuItem.Text = "Shuffled"
         '
         'Form_ChannelContent
@@ -132,7 +132,7 @@ Partial Class Form_ChannelContent
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(62, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(785, 512)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.ListBox_ChannelContent)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
@@ -141,7 +141,7 @@ Partial Class Form_ChannelContent
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form_ChannelContent"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "URLs List"
+        Me.Text = "Channel Content List"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -149,7 +149,7 @@ Partial Class Form_ChannelContent
 
     End Sub
 
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents ListBox_ChannelContent As ListBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label

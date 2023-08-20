@@ -9,9 +9,9 @@ Public Class Form_ChannelContent
     End Sub
 
     ' ListBox1 - SelectedIndexChanged
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-        If ListBox1.SelectedIndex > -1 And Me.Visible And Not Form_Main.MediaPlayer.URL = "https://archive.org/download/" & ListBox1.SelectedItem.ToString Then
-            Form_Main.MediaPlayer.URL = "https://archive.org/download/" & ListBox1.SelectedItem.ToString
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox_ChannelContent.SelectedIndexChanged
+        If ListBox_ChannelContent.SelectedIndex > -1 And Me.Visible And Not Form_Main.MediaPlayer.URL = "https://archive.org/download/" & ListBox_ChannelContent.SelectedItem.ToString Then
+            Form_Main.MediaPlayer.URL = "https://archive.org/download/" & ListBox_ChannelContent.SelectedItem.ToString
         End If
     End Sub
 

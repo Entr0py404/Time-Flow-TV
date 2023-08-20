@@ -26,43 +26,50 @@ Partial Class Form_Main
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Main))
         Me.ContextMenuStrip_MediaPlayer = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NormalPopoutToggleModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChannelsListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NormalPopoutToggleModeToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChannelsListToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChannelContentListToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.AlwaysOnTopToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StretchToFitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ShowPlayerControlsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpacityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SubOpacityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PlusOpacityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AlwaysOnTopToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StretchToFitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowPlayerControlsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpacityToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SubOpacityToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PlusOpacityToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Opacity100ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Opacity100ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResizeToMediaAspectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResizeToMediaSourceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeToMediaAspectToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeToMediaSourceToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.InfoToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IMDbToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CurrentMediaNameToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatisticsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlowLayoutPanel_Channels = New System.Windows.Forms.FlowLayoutPanel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AutoCloseChannelsListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AlwaysOnTopToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StretchToFitToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ShowPlayerControlsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AlwaysOnTopToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StretchToFitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowPlayerControlsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResizeToToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResizeToMediaSourceToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResizeToMediaAspectToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeToMediaSourceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeToMediaAspectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MediaAspectAutoInNormalModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChannelsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChannelsListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChannelContentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChannelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChannelsListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChannelContentListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentListModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentListModeSortedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentListModeShuffledToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PopoutModeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PopoutModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelContentDurationTotalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrentMediaNameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -104,13 +111,14 @@ Partial Class Form_Main
         Me.CloseChannelsListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FavoritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IMDbToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_OpeningFade = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip_Channel = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddRemoveFavoritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MediaPlayer = New AxWMPLib.AxWindowsMediaPlayer()
-        Me.PictureBox_Media = New System.Windows.Forms.PictureBox()
         Me.Splitter1 = New System.Windows.Forms.Splitter()
+        Me.PictureBox_Media = New System.Windows.Forms.PictureBox()
+        Me.MediaPlayer = New AxWMPLib.AxWindowsMediaPlayer()
         Me.ContextMenuStrip_MediaPlayer.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip_PlayerStatus.SuspendLayout()
@@ -119,89 +127,108 @@ Partial Class Form_Main
         CType(Me.NumericUpDown_SearchByChannelNumber, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip_Channels.SuspendLayout()
         Me.ContextMenuStrip_Channel.SuspendLayout()
-        CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox_Media, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip_MediaPlayer
         '
         Me.ContextMenuStrip_MediaPlayer.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.ContextMenuStrip_MediaPlayer.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuStrip_MediaPlayer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator2, Me.NormalPopoutToggleModeToolStripMenuItem, Me.ChannelsListToolStripMenuItem, Me.ToolStripSeparator5, Me.AlwaysOnTopToolStripMenuItem, Me.StretchToFitToolStripMenuItem, Me.ShowPlayerControlsToolStripMenuItem, Me.OpacityToolStripMenuItem, Me.ToolStripSeparator4, Me.MediaAspectAutoInPopoutModeToolStripMenuItem, Me.ResizeToMediaAspectToolStripMenuItem, Me.ResizeToMediaSourceToolStripMenuItem, Me.ResizeToolStripMenuItem, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem})
+        Me.ContextMenuStrip_MediaPlayer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator2, Me.NormalPopoutToggleModeToolStripMenuItem2, Me.ChannelsListToolStripMenuItem2, Me.ChannelContentListToolStripMenuItem2, Me.ToolStripSeparator5, Me.SettingsToolStripMenuItem2, Me.ToolStripSeparator4, Me.ResizeToMediaAspectToolStripMenuItem2, Me.ResizeToMediaSourceToolStripMenuItem2, Me.ResizeToolStripMenuItem2, Me.ToolStripSeparator6, Me.InfoToolStripMenuItem2, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem2})
         Me.ContextMenuStrip_MediaPlayer.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip_MediaPlayer.ShowCheckMargin = True
         Me.ContextMenuStrip_MediaPlayer.ShowImageMargin = False
-        Me.ContextMenuStrip_MediaPlayer.Size = New System.Drawing.Size(289, 302)
+        Me.ContextMenuStrip_MediaPlayer.Size = New System.Drawing.Size(232, 260)
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.AutoSize = False
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(285, 16)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(228, 16)
         '
-        'NormalPopoutToggleModeToolStripMenuItem
+        'NormalPopoutToggleModeToolStripMenuItem2
         '
-        Me.NormalPopoutToggleModeToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.NormalPopoutToggleModeToolStripMenuItem.Name = "NormalPopoutToggleModeToolStripMenuItem"
-        Me.NormalPopoutToggleModeToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.NormalPopoutToggleModeToolStripMenuItem.Text = "Normal mode"
+        Me.NormalPopoutToggleModeToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.NormalPopoutToggleModeToolStripMenuItem2.Name = "NormalPopoutToggleModeToolStripMenuItem2"
+        Me.NormalPopoutToggleModeToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.NormalPopoutToggleModeToolStripMenuItem2.Text = "Normal mode"
         '
-        'ChannelsListToolStripMenuItem
+        'ChannelsListToolStripMenuItem2
         '
-        Me.ChannelsListToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ChannelsListToolStripMenuItem.Name = "ChannelsListToolStripMenuItem"
-        Me.ChannelsListToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.ChannelsListToolStripMenuItem.Text = "Channels list"
+        Me.ChannelsListToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ChannelsListToolStripMenuItem2.Name = "ChannelsListToolStripMenuItem2"
+        Me.ChannelsListToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.ChannelsListToolStripMenuItem2.Text = "Channels list"
+        '
+        'ChannelContentListToolStripMenuItem2
+        '
+        Me.ChannelContentListToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ChannelContentListToolStripMenuItem2.Name = "ChannelContentListToolStripMenuItem2"
+        Me.ChannelContentListToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.ChannelContentListToolStripMenuItem2.Text = "Channel content list"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(285, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(228, 6)
         '
-        'AlwaysOnTopToolStripMenuItem
+        'SettingsToolStripMenuItem2
         '
-        Me.AlwaysOnTopToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.AlwaysOnTopToolStripMenuItem.Name = "AlwaysOnTopToolStripMenuItem"
-        Me.AlwaysOnTopToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.AlwaysOnTopToolStripMenuItem.Text = "Always on top"
+        Me.SettingsToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AlwaysOnTopToolStripMenuItem2, Me.StretchToFitToolStripMenuItem2, Me.ShowPlayerControlsToolStripMenuItem2, Me.OpacityToolStripMenuItem2, Me.MediaAspectAutoInPopoutModeToolStripMenuItem2})
+        Me.SettingsToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.SettingsToolStripMenuItem2.Name = "SettingsToolStripMenuItem2"
+        Me.SettingsToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.SettingsToolStripMenuItem2.Text = "Settings"
         '
-        'StretchToFitToolStripMenuItem
+        'AlwaysOnTopToolStripMenuItem2
         '
-        Me.StretchToFitToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.StretchToFitToolStripMenuItem.Name = "StretchToFitToolStripMenuItem"
-        Me.StretchToFitToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.StretchToFitToolStripMenuItem.Text = "Stretch to fit"
+        Me.AlwaysOnTopToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.AlwaysOnTopToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.AlwaysOnTopToolStripMenuItem2.Name = "AlwaysOnTopToolStripMenuItem2"
+        Me.AlwaysOnTopToolStripMenuItem2.Size = New System.Drawing.Size(288, 24)
+        Me.AlwaysOnTopToolStripMenuItem2.Text = "Always on top"
         '
-        'ShowPlayerControlsToolStripMenuItem
+        'StretchToFitToolStripMenuItem2
         '
-        Me.ShowPlayerControlsToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ShowPlayerControlsToolStripMenuItem.Name = "ShowPlayerControlsToolStripMenuItem"
-        Me.ShowPlayerControlsToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.ShowPlayerControlsToolStripMenuItem.Text = "Show player controls"
+        Me.StretchToFitToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.StretchToFitToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.StretchToFitToolStripMenuItem2.Name = "StretchToFitToolStripMenuItem2"
+        Me.StretchToFitToolStripMenuItem2.Size = New System.Drawing.Size(288, 24)
+        Me.StretchToFitToolStripMenuItem2.Text = "Stretch to fit"
         '
-        'OpacityToolStripMenuItem
+        'ShowPlayerControlsToolStripMenuItem2
         '
-        Me.OpacityToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubOpacityToolStripMenuItem, Me.PlusOpacityToolStripMenuItem, Me.ToolStripMenuItem5, Me.Opacity100ToolStripMenuItem})
-        Me.OpacityToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.OpacityToolStripMenuItem.Name = "OpacityToolStripMenuItem"
-        Me.OpacityToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.OpacityToolStripMenuItem.Text = "Opacity"
+        Me.ShowPlayerControlsToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ShowPlayerControlsToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ShowPlayerControlsToolStripMenuItem2.Name = "ShowPlayerControlsToolStripMenuItem2"
+        Me.ShowPlayerControlsToolStripMenuItem2.Size = New System.Drawing.Size(288, 24)
+        Me.ShowPlayerControlsToolStripMenuItem2.Text = "Show player controls"
         '
-        'SubOpacityToolStripMenuItem
+        'OpacityToolStripMenuItem2
         '
-        Me.SubOpacityToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.SubOpacityToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.SubOpacityToolStripMenuItem.Name = "SubOpacityToolStripMenuItem"
-        Me.SubOpacityToolStripMenuItem.Size = New System.Drawing.Size(114, 24)
-        Me.SubOpacityToolStripMenuItem.Text = " -"
+        Me.OpacityToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.OpacityToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SubOpacityToolStripMenuItem2, Me.PlusOpacityToolStripMenuItem2, Me.ToolStripMenuItem5, Me.Opacity100ToolStripMenuItem2})
+        Me.OpacityToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.OpacityToolStripMenuItem2.Name = "OpacityToolStripMenuItem2"
+        Me.OpacityToolStripMenuItem2.Size = New System.Drawing.Size(288, 24)
+        Me.OpacityToolStripMenuItem2.Text = "Opacity"
         '
-        'PlusOpacityToolStripMenuItem
+        'SubOpacityToolStripMenuItem2
         '
-        Me.PlusOpacityToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.PlusOpacityToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.PlusOpacityToolStripMenuItem.Name = "PlusOpacityToolStripMenuItem"
-        Me.PlusOpacityToolStripMenuItem.Size = New System.Drawing.Size(114, 24)
-        Me.PlusOpacityToolStripMenuItem.Text = " +"
+        Me.SubOpacityToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.SubOpacityToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.SubOpacityToolStripMenuItem2.Name = "SubOpacityToolStripMenuItem2"
+        Me.SubOpacityToolStripMenuItem2.Size = New System.Drawing.Size(114, 24)
+        Me.SubOpacityToolStripMenuItem2.Text = " -"
+        '
+        'PlusOpacityToolStripMenuItem2
+        '
+        Me.PlusOpacityToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.PlusOpacityToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.PlusOpacityToolStripMenuItem2.Name = "PlusOpacityToolStripMenuItem2"
+        Me.PlusOpacityToolStripMenuItem2.Size = New System.Drawing.Size(114, 24)
+        Me.PlusOpacityToolStripMenuItem2.Text = " +"
         '
         'ToolStripMenuItem5
         '
@@ -209,65 +236,104 @@ Partial Class Form_Main
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
         Me.ToolStripMenuItem5.Size = New System.Drawing.Size(111, 6)
         '
-        'Opacity100ToolStripMenuItem
+        'Opacity100ToolStripMenuItem2
         '
-        Me.Opacity100ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Opacity100ToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Opacity100ToolStripMenuItem.Name = "Opacity100ToolStripMenuItem"
-        Me.Opacity100ToolStripMenuItem.Size = New System.Drawing.Size(114, 24)
-        Me.Opacity100ToolStripMenuItem.Text = "100%"
+        Me.Opacity100ToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Opacity100ToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Opacity100ToolStripMenuItem2.Name = "Opacity100ToolStripMenuItem2"
+        Me.Opacity100ToolStripMenuItem2.Size = New System.Drawing.Size(114, 24)
+        Me.Opacity100ToolStripMenuItem2.Text = "100%"
+        '
+        'MediaAspectAutoInPopoutModeToolStripMenuItem2
+        '
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.Checked = True
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.CheckOnClick = True
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.Name = "MediaAspectAutoInPopoutModeToolStripMenuItem2"
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.Size = New System.Drawing.Size(288, 24)
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem2.Text = "Media aspect auto ( in popout )"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(285, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(228, 6)
         '
-        'MediaAspectAutoInPopoutModeToolStripMenuItem
+        'ResizeToMediaAspectToolStripMenuItem2
         '
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Checked = True
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.CheckOnClick = True
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Name = "MediaAspectAutoInPopoutModeToolStripMenuItem"
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Text = "Media aspect auto ( in popout )"
+        Me.ResizeToMediaAspectToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ResizeToMediaAspectToolStripMenuItem2.Name = "ResizeToMediaAspectToolStripMenuItem2"
+        Me.ResizeToMediaAspectToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.ResizeToMediaAspectToolStripMenuItem2.Text = "Resize to media aspect"
         '
-        'ResizeToMediaAspectToolStripMenuItem
+        'ResizeToMediaSourceToolStripMenuItem2
         '
-        Me.ResizeToMediaAspectToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ResizeToMediaAspectToolStripMenuItem.Name = "ResizeToMediaAspectToolStripMenuItem"
-        Me.ResizeToMediaAspectToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.ResizeToMediaAspectToolStripMenuItem.Text = "Resize to media aspect"
+        Me.ResizeToMediaSourceToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ResizeToMediaSourceToolStripMenuItem2.Name = "ResizeToMediaSourceToolStripMenuItem2"
+        Me.ResizeToMediaSourceToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.ResizeToMediaSourceToolStripMenuItem2.Text = "Resize to media source"
         '
-        'ResizeToMediaSourceToolStripMenuItem
+        'ResizeToolStripMenuItem2
         '
-        Me.ResizeToMediaSourceToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ResizeToMediaSourceToolStripMenuItem.Name = "ResizeToMediaSourceToolStripMenuItem"
-        Me.ResizeToMediaSourceToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.ResizeToMediaSourceToolStripMenuItem.Text = "Resize to media source"
+        Me.ResizeToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ResizeToolStripMenuItem2.Name = "ResizeToolStripMenuItem2"
+        Me.ResizeToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.ResizeToolStripMenuItem2.Text = "Resize"
         '
-        'ResizeToolStripMenuItem
+        'ToolStripSeparator6
         '
-        Me.ResizeToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ResizeToolStripMenuItem.Name = "ResizeToolStripMenuItem"
-        Me.ResizeToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.ResizeToolStripMenuItem.Text = "Resize"
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(228, 6)
+        '
+        'InfoToolStripMenuItem2
+        '
+        Me.InfoToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IMDbToolStripMenuItem2, Me.CurrentMediaNameToolStripMenuItem2, Me.StatisticsToolStripMenuItem2})
+        Me.InfoToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.InfoToolStripMenuItem2.Name = "InfoToolStripMenuItem2"
+        Me.InfoToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.InfoToolStripMenuItem2.Text = "Info"
+        '
+        'IMDbToolStripMenuItem2
+        '
+        Me.IMDbToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.IMDbToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.IMDbToolStripMenuItem2.Name = "IMDbToolStripMenuItem2"
+        Me.IMDbToolStripMenuItem2.Size = New System.Drawing.Size(213, 24)
+        Me.IMDbToolStripMenuItem2.Text = "IMDb"
+        '
+        'CurrentMediaNameToolStripMenuItem2
+        '
+        Me.CurrentMediaNameToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.CurrentMediaNameToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.CurrentMediaNameToolStripMenuItem2.Name = "CurrentMediaNameToolStripMenuItem2"
+        Me.CurrentMediaNameToolStripMenuItem2.Size = New System.Drawing.Size(213, 24)
+        Me.CurrentMediaNameToolStripMenuItem2.Text = "Current media name"
+        '
+        'StatisticsToolStripMenuItem2
+        '
+        Me.StatisticsToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.StatisticsToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.StatisticsToolStripMenuItem2.Name = "StatisticsToolStripMenuItem2"
+        Me.StatisticsToolStripMenuItem2.Size = New System.Drawing.Size(213, 24)
+        Me.StatisticsToolStripMenuItem2.Text = "Statistics"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(285, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(228, 6)
         '
-        'ExitToolStripMenuItem
+        'ExitToolStripMenuItem2
         '
-        Me.ExitToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
-        Me.ExitToolStripMenuItem.Text = "Exit"
+        Me.ExitToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ExitToolStripMenuItem2.Name = "ExitToolStripMenuItem2"
+        Me.ExitToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.ExitToolStripMenuItem2.Text = "Exit"
         '
         'FlowLayoutPanel_Channels
         '
         Me.FlowLayoutPanel_Channels.AutoScroll = True
+        Me.FlowLayoutPanel_Channels.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel_Channels.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.FlowLayoutPanel_Channels.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel_Channels.Location = New System.Drawing.Point(0, 84)
@@ -280,7 +346,7 @@ Partial Class Form_Main
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 11.25!)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ChannelsToolStripMenuItem1, Me.PopoutModeToolStripMenuItem1, Me.InfoToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.ChannelsToolStripMenuItem, Me.PopoutModeToolStripMenuItem, Me.InfoToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(866, 28)
@@ -289,7 +355,7 @@ Partial Class Form_Main
         '
         'SettingsToolStripMenuItem
         '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoCloseChannelsListToolStripMenuItem, Me.AlwaysOnTopToolStripMenuItem1, Me.StretchToFitToolStripMenuItem1, Me.ShowPlayerControlsToolStripMenuItem1, Me.ResizeToToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoCloseChannelsListToolStripMenuItem, Me.AlwaysOnTopToolStripMenuItem, Me.StretchToFitToolStripMenuItem, Me.ShowPlayerControlsToolStripMenuItem, Me.ResizeToToolStripMenuItem})
         Me.SettingsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
@@ -305,65 +371,65 @@ Partial Class Form_Main
         Me.AutoCloseChannelsListToolStripMenuItem.Size = New System.Drawing.Size(232, 24)
         Me.AutoCloseChannelsListToolStripMenuItem.Text = "Auto close channels list"
         '
-        'AlwaysOnTopToolStripMenuItem1
+        'AlwaysOnTopToolStripMenuItem
         '
-        Me.AlwaysOnTopToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.AlwaysOnTopToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.AlwaysOnTopToolStripMenuItem1.Name = "AlwaysOnTopToolStripMenuItem1"
-        Me.AlwaysOnTopToolStripMenuItem1.Size = New System.Drawing.Size(232, 24)
-        Me.AlwaysOnTopToolStripMenuItem1.Text = "Always on top"
+        Me.AlwaysOnTopToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.AlwaysOnTopToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.AlwaysOnTopToolStripMenuItem.Name = "AlwaysOnTopToolStripMenuItem"
+        Me.AlwaysOnTopToolStripMenuItem.Size = New System.Drawing.Size(232, 24)
+        Me.AlwaysOnTopToolStripMenuItem.Text = "Always on top"
         '
-        'StretchToFitToolStripMenuItem1
+        'StretchToFitToolStripMenuItem
         '
-        Me.StretchToFitToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.StretchToFitToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.StretchToFitToolStripMenuItem1.Name = "StretchToFitToolStripMenuItem1"
-        Me.StretchToFitToolStripMenuItem1.Size = New System.Drawing.Size(232, 24)
-        Me.StretchToFitToolStripMenuItem1.Text = "Stretch to fit"
+        Me.StretchToFitToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.StretchToFitToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.StretchToFitToolStripMenuItem.Name = "StretchToFitToolStripMenuItem"
+        Me.StretchToFitToolStripMenuItem.Size = New System.Drawing.Size(232, 24)
+        Me.StretchToFitToolStripMenuItem.Text = "Stretch to fit"
         '
-        'ShowPlayerControlsToolStripMenuItem1
+        'ShowPlayerControlsToolStripMenuItem
         '
-        Me.ShowPlayerControlsToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.ShowPlayerControlsToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ShowPlayerControlsToolStripMenuItem1.Name = "ShowPlayerControlsToolStripMenuItem1"
-        Me.ShowPlayerControlsToolStripMenuItem1.Size = New System.Drawing.Size(232, 24)
-        Me.ShowPlayerControlsToolStripMenuItem1.Text = "Show player controls"
+        Me.ShowPlayerControlsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ShowPlayerControlsToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ShowPlayerControlsToolStripMenuItem.Name = "ShowPlayerControlsToolStripMenuItem"
+        Me.ShowPlayerControlsToolStripMenuItem.Size = New System.Drawing.Size(232, 24)
+        Me.ShowPlayerControlsToolStripMenuItem.Text = "Show player controls"
         '
         'ResizeToToolStripMenuItem
         '
         Me.ResizeToToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.ResizeToToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResizeToMediaSourceToolStripMenuItem1, Me.ResizeToMediaAspectToolStripMenuItem1, Me.MediaAspectAutoInPopoutModeToolStripMenuItem1, Me.MediaAspectAutoInNormalModeToolStripMenuItem})
+        Me.ResizeToToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResizeToMediaSourceToolStripMenuItem, Me.ResizeToMediaAspectToolStripMenuItem, Me.MediaAspectAutoInPopoutModeToolStripMenuItem, Me.MediaAspectAutoInNormalModeToolStripMenuItem})
         Me.ResizeToToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ResizeToToolStripMenuItem.Name = "ResizeToToolStripMenuItem"
         Me.ResizeToToolStripMenuItem.Size = New System.Drawing.Size(232, 24)
         Me.ResizeToToolStripMenuItem.Text = "Resize to"
         '
-        'ResizeToMediaSourceToolStripMenuItem1
+        'ResizeToMediaSourceToolStripMenuItem
         '
-        Me.ResizeToMediaSourceToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.ResizeToMediaSourceToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ResizeToMediaSourceToolStripMenuItem1.Name = "ResizeToMediaSourceToolStripMenuItem1"
-        Me.ResizeToMediaSourceToolStripMenuItem1.Size = New System.Drawing.Size(288, 24)
-        Me.ResizeToMediaSourceToolStripMenuItem1.Text = "Media source"
+        Me.ResizeToMediaSourceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ResizeToMediaSourceToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ResizeToMediaSourceToolStripMenuItem.Name = "ResizeToMediaSourceToolStripMenuItem"
+        Me.ResizeToMediaSourceToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.ResizeToMediaSourceToolStripMenuItem.Text = "Media source"
         '
-        'ResizeToMediaAspectToolStripMenuItem1
+        'ResizeToMediaAspectToolStripMenuItem
         '
-        Me.ResizeToMediaAspectToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.ResizeToMediaAspectToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ResizeToMediaAspectToolStripMenuItem1.Name = "ResizeToMediaAspectToolStripMenuItem1"
-        Me.ResizeToMediaAspectToolStripMenuItem1.Size = New System.Drawing.Size(288, 24)
-        Me.ResizeToMediaAspectToolStripMenuItem1.Text = "Media aspect"
+        Me.ResizeToMediaAspectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ResizeToMediaAspectToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ResizeToMediaAspectToolStripMenuItem.Name = "ResizeToMediaAspectToolStripMenuItem"
+        Me.ResizeToMediaAspectToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.ResizeToMediaAspectToolStripMenuItem.Text = "Media aspect"
         '
-        'MediaAspectAutoInPopoutModeToolStripMenuItem1
+        'MediaAspectAutoInPopoutModeToolStripMenuItem
         '
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.Checked = True
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.CheckOnClick = True
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.Name = "MediaAspectAutoInPopoutModeToolStripMenuItem1"
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.Size = New System.Drawing.Size(288, 24)
-        Me.MediaAspectAutoInPopoutModeToolStripMenuItem1.Text = "Media aspect auto ( in popout )"
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Checked = True
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.CheckOnClick = True
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Name = "MediaAspectAutoInPopoutModeToolStripMenuItem"
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.MediaAspectAutoInPopoutModeToolStripMenuItem.Text = "Media aspect auto ( in popout )"
         '
         'MediaAspectAutoInNormalModeToolStripMenuItem
         '
@@ -374,29 +440,29 @@ Partial Class Form_Main
         Me.MediaAspectAutoInNormalModeToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
         Me.MediaAspectAutoInNormalModeToolStripMenuItem.Text = "Media aspect auto ( in normal )"
         '
-        'ChannelsToolStripMenuItem1
+        'ChannelsToolStripMenuItem
         '
-        Me.ChannelsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChannelsListToolStripMenuItem1, Me.ChannelContentToolStripMenuItem, Me.ContentListModeToolStripMenuItem})
-        Me.ChannelsToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ChannelsToolStripMenuItem1.Name = "ChannelsToolStripMenuItem1"
-        Me.ChannelsToolStripMenuItem1.Size = New System.Drawing.Size(80, 24)
-        Me.ChannelsToolStripMenuItem1.Text = "Channels"
+        Me.ChannelsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChannelsListToolStripMenuItem, Me.ChannelContentListToolStripMenuItem, Me.ContentListModeToolStripMenuItem})
+        Me.ChannelsToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ChannelsToolStripMenuItem.Name = "ChannelsToolStripMenuItem"
+        Me.ChannelsToolStripMenuItem.Size = New System.Drawing.Size(80, 24)
+        Me.ChannelsToolStripMenuItem.Text = "Channels"
         '
-        'ChannelsListToolStripMenuItem1
+        'ChannelsListToolStripMenuItem
         '
-        Me.ChannelsListToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.ChannelsListToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ChannelsListToolStripMenuItem1.Name = "ChannelsListToolStripMenuItem1"
-        Me.ChannelsListToolStripMenuItem1.Size = New System.Drawing.Size(196, 24)
-        Me.ChannelsListToolStripMenuItem1.Text = "List"
+        Me.ChannelsListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ChannelsListToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ChannelsListToolStripMenuItem.Name = "ChannelsListToolStripMenuItem"
+        Me.ChannelsListToolStripMenuItem.Size = New System.Drawing.Size(213, 24)
+        Me.ChannelsListToolStripMenuItem.Text = "Channels List"
         '
-        'ChannelContentToolStripMenuItem
+        'ChannelContentListToolStripMenuItem
         '
-        Me.ChannelContentToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.ChannelContentToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ChannelContentToolStripMenuItem.Name = "ChannelContentToolStripMenuItem"
-        Me.ChannelContentToolStripMenuItem.Size = New System.Drawing.Size(196, 24)
-        Me.ChannelContentToolStripMenuItem.Text = "Content"
+        Me.ChannelContentListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ChannelContentListToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ChannelContentListToolStripMenuItem.Name = "ChannelContentListToolStripMenuItem"
+        Me.ChannelContentListToolStripMenuItem.Size = New System.Drawing.Size(213, 24)
+        Me.ChannelContentListToolStripMenuItem.Text = "Channel Content List"
         '
         'ContentListModeToolStripMenuItem
         '
@@ -404,7 +470,7 @@ Partial Class Form_Main
         Me.ContentListModeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentListModeSortedToolStripMenuItem, Me.ContentListModeShuffledToolStripMenuItem})
         Me.ContentListModeToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeToolStripMenuItem.Name = "ContentListModeToolStripMenuItem"
-        Me.ContentListModeToolStripMenuItem.Size = New System.Drawing.Size(196, 24)
+        Me.ContentListModeToolStripMenuItem.Size = New System.Drawing.Size(213, 24)
         Me.ContentListModeToolStripMenuItem.Text = "Content list mode"
         '
         'ContentListModeSortedToolStripMenuItem
@@ -425,12 +491,12 @@ Partial Class Form_Main
         Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(133, 24)
         Me.ContentListModeShuffledToolStripMenuItem.Text = "Shuffled"
         '
-        'PopoutModeToolStripMenuItem1
+        'PopoutModeToolStripMenuItem
         '
-        Me.PopoutModeToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.PopoutModeToolStripMenuItem1.Name = "PopoutModeToolStripMenuItem1"
-        Me.PopoutModeToolStripMenuItem1.Size = New System.Drawing.Size(111, 24)
-        Me.PopoutModeToolStripMenuItem1.Text = "Popout mode"
+        Me.PopoutModeToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.PopoutModeToolStripMenuItem.Name = "PopoutModeToolStripMenuItem"
+        Me.PopoutModeToolStripMenuItem.Size = New System.Drawing.Size(111, 24)
+        Me.PopoutModeToolStripMenuItem.Text = "Popout mode"
         '
         'InfoToolStripMenuItem
         '
@@ -615,7 +681,7 @@ Partial Class Form_Main
         '
         Me.MenuStrip_Channels.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.MenuStrip_Channels.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip_Channels.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.CloseChannelsListToolStripMenuItem, Me.SearchToolStripMenuItem, Me.FavoritesToolStripMenuItem})
+        Me.MenuStrip_Channels.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.CloseChannelsListToolStripMenuItem, Me.SearchToolStripMenuItem, Me.FavoritesToolStripMenuItem, Me.IMDbToolStripMenuItem})
         Me.MenuStrip_Channels.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip_Channels.Name = "MenuStrip_Channels"
         Me.MenuStrip_Channels.Size = New System.Drawing.Size(398, 29)
@@ -803,6 +869,13 @@ Partial Class Form_Main
         Me.FavoritesToolStripMenuItem.Size = New System.Drawing.Size(84, 25)
         Me.FavoritesToolStripMenuItem.Text = "Favorites"
         '
+        'IMDbToolStripMenuItem
+        '
+        Me.IMDbToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.IMDbToolStripMenuItem.Name = "IMDbToolStripMenuItem"
+        Me.IMDbToolStripMenuItem.Size = New System.Drawing.Size(60, 25)
+        Me.IMDbToolStripMenuItem.Text = "IMDb"
+        '
         'ToolTip1
         '
         Me.ToolTip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
@@ -813,6 +886,7 @@ Partial Class Form_Main
         '
         'Timer_OpeningFade
         '
+        Me.Timer_OpeningFade.Interval = 50
         '
         'ContextMenuStrip_Channel
         '
@@ -830,17 +904,17 @@ Partial Class Form_Main
         Me.AddRemoveFavoritesToolStripMenuItem.Size = New System.Drawing.Size(192, 30)
         Me.AddRemoveFavoritesToolStripMenuItem.Text = "Add to favorites"
         '
-        'MediaPlayer
+        'Splitter1
         '
-        Me.MediaPlayer.ContextMenuStrip = Me.ContextMenuStrip_MediaPlayer
-        Me.MediaPlayer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MediaPlayer.Enabled = True
-        Me.MediaPlayer.Location = New System.Drawing.Point(0, 28)
-        Me.MediaPlayer.Name = "MediaPlayer"
-        Me.MediaPlayer.OcxState = CType(resources.GetObject("MediaPlayer.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.MediaPlayer.Size = New System.Drawing.Size(866, 631)
-        Me.MediaPlayer.TabIndex = 40
-        Me.MediaPlayer.TabStop = False
+        Me.Splitter1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Splitter1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Splitter1.Enabled = False
+        Me.Splitter1.Location = New System.Drawing.Point(863, 28)
+        Me.Splitter1.MinSize = 398
+        Me.Splitter1.Name = "Splitter1"
+        Me.Splitter1.Size = New System.Drawing.Size(3, 631)
+        Me.Splitter1.TabIndex = 43
+        Me.Splitter1.TabStop = False
         '
         'PictureBox_Media
         '
@@ -854,17 +928,17 @@ Partial Class Form_Main
         Me.PictureBox_Media.TabIndex = 42
         Me.PictureBox_Media.TabStop = False
         '
-        'Splitter1
+        'MediaPlayer
         '
-        Me.Splitter1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Splitter1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Splitter1.Enabled = False
-        Me.Splitter1.Location = New System.Drawing.Point(863, 28)
-        Me.Splitter1.MinSize = 398
-        Me.Splitter1.Name = "Splitter1"
-        Me.Splitter1.Size = New System.Drawing.Size(3, 631)
-        Me.Splitter1.TabIndex = 43
-        Me.Splitter1.TabStop = False
+        Me.MediaPlayer.ContextMenuStrip = Me.ContextMenuStrip_MediaPlayer
+        Me.MediaPlayer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MediaPlayer.Enabled = True
+        Me.MediaPlayer.Location = New System.Drawing.Point(0, 28)
+        Me.MediaPlayer.Name = "MediaPlayer"
+        Me.MediaPlayer.OcxState = CType(resources.GetObject("MediaPlayer.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.MediaPlayer.Size = New System.Drawing.Size(866, 631)
+        Me.MediaPlayer.TabIndex = 40
+        Me.MediaPlayer.TabStop = False
         '
         'Form_Main
         '
@@ -898,8 +972,8 @@ Partial Class Form_Main
         Me.MenuStrip_Channels.ResumeLayout(False)
         Me.MenuStrip_Channels.PerformLayout()
         Me.ContextMenuStrip_Channel.ResumeLayout(False)
-        CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox_Media, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -911,31 +985,27 @@ Partial Class Form_Main
     Friend WithEvents ToolStripStatusLabel_CurrentChannelName As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel_PlayerStatus As ToolStripStatusLabel
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NormalPopoutToggleModeToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ChannelsListToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents PopoutModeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlwaysOnTopToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents NormalPopoutToggleModeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ChannelsListToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PopoutModeToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents AlwaysOnTopToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents StretchToFitToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents StretchToFitToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ResizeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ResizeToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents MediaPlayer As AxWMPLib.AxWindowsMediaPlayer
-    Friend WithEvents ShowPlayerControlsToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ShowPlayerControlsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents AutoCloseChannelsListToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResizeToMediaSourceToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ResizeToMediaAspectToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ResizeToToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResizeToMediaSourceToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResizeToMediaAspectToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ResizeToToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ResizeToMediaSourceToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ResizeToMediaAspectToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents MediaAspectAutoInPopoutModeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MediaAspectAutoInPopoutModeToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents MediaAspectAutoInNormalModeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ChannelsToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ChannelsListToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ChannelContentToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ChannelsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ChannelsListToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ChannelContentListToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel_ChannelsList As Panel
     Friend WithEvents MenuStrip_Channels As MenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
@@ -950,11 +1020,6 @@ Partial Class Form_Main
     Friend WithEvents ChannelContentDurationTotalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CurrentMediaNameToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
-    Friend WithEvents OpacityToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Opacity100ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem5 As ToolStripSeparator
-    Friend WithEvents PlusOpacityToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SubOpacityToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Timer_OpeningFade As Timer
     Friend WithEvents PictureBox_Media As PictureBox
     Friend WithEvents ToolStripStatusLabel_CurrentChannelNumber As ToolStripStatusLabel
@@ -972,7 +1037,7 @@ Partial Class Form_Main
     Friend WithEvents ContentListModeSortedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContentListModeShuffledToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatisticsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents ListStyleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FixedVerticalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerticalToolStripMenuItem As ToolStripMenuItem
@@ -991,4 +1056,21 @@ Partial Class Form_Main
     Friend WithEvents Scale8ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Splitter1 As Splitter
+    Friend WithEvents IMDbToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents InfoToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents IMDbToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents CurrentMediaNameToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents StatisticsToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ChannelContentListToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents AlwaysOnTopToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents StretchToFitToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ShowPlayerControlsToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents OpacityToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents SubOpacityToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents PlusOpacityToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As ToolStripSeparator
+    Friend WithEvents Opacity100ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents MediaAspectAutoInPopoutModeToolStripMenuItem2 As ToolStripMenuItem
 End Class

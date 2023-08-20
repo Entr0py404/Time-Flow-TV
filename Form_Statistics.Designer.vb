@@ -24,394 +24,395 @@ Partial Class Form_Statistics
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Statistics))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label_FrameRate = New System.Windows.Forms.Label()
+        Me.Timer_Statistics = New System.Windows.Forms.Timer(Me.components)
+        Me.Label_EncodedFrameRate = New System.Windows.Forms.Label()
+        Me.Label_FramesSkipped = New System.Windows.Forms.Label()
+        Me.Label_BitRate = New System.Windows.Forms.Label()
+        Me.Label_MaxBitRate = New System.Windows.Forms.Label()
+        Me.Label_BandWidth = New System.Windows.Forms.Label()
+        Me.Label_MaxBandwidth = New System.Windows.Forms.Label()
+        Me.Label_ReceivedPackets = New System.Windows.Forms.Label()
+        Me.Label_RecoveredPackets = New System.Windows.Forms.Label()
+        Me.Label_LostPackets = New System.Windows.Forms.Label()
+        Me.Label_BufferingProgress = New System.Windows.Forms.Label()
+        Me.Label_BufferingTime = New System.Windows.Forms.Label()
+        Me.Label_BufferingCount = New System.Windows.Forms.Label()
+        Me.Label_DownloadProgress = New System.Windows.Forms.Label()
+        Me.Label_ReceptionQuality = New System.Windows.Forms.Label()
+        Me.Label_SourceProtocol = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel_Top1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.Panel_Top2 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel16 = New System.Windows.Forms.Panel()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Panel_Top5 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel_Top3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel_Top4 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label_OpenState = New System.Windows.Forms.Label()
+        Me.Panel_Top6 = New System.Windows.Forms.Panel()
+        Me.Label_PlayerStatus = New System.Windows.Forms.Label()
+        Me.Label_PlayState = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel11.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label1
+        'Label_FrameRate
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label1.Location = New System.Drawing.Point(3, 11)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 18)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
+        Me.Label_FrameRate.AutoSize = True
+        Me.Label_FrameRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_FrameRate.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_FrameRate.Location = New System.Drawing.Point(3, 11)
+        Me.Label_FrameRate.Name = "Label_FrameRate"
+        Me.Label_FrameRate.Size = New System.Drawing.Size(94, 18)
+        Me.Label_FrameRate.TabIndex = 0
+        Me.Label_FrameRate.Text = "Frame Rate: "
         '
-        'Timer1
+        'Timer_Statistics
         '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 500
+        Me.Timer_Statistics.Enabled = True
+        Me.Timer_Statistics.Interval = 500
         '
-        'Label2
+        'Label_EncodedFrameRate
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label2.Location = New System.Drawing.Point(3, 29)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 18)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Label2"
+        Me.Label_EncodedFrameRate.AutoSize = True
+        Me.Label_EncodedFrameRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_EncodedFrameRate.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_EncodedFrameRate.Location = New System.Drawing.Point(3, 29)
+        Me.Label_EncodedFrameRate.Name = "Label_EncodedFrameRate"
+        Me.Label_EncodedFrameRate.Size = New System.Drawing.Size(157, 18)
+        Me.Label_EncodedFrameRate.TabIndex = 1
+        Me.Label_EncodedFrameRate.Text = "Encoded Frame Rate: "
         '
-        'Label3
+        'Label_FramesSkipped
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label3.Location = New System.Drawing.Point(3, 47)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 18)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Label3"
+        Me.Label_FramesSkipped.AutoSize = True
+        Me.Label_FramesSkipped.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_FramesSkipped.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_FramesSkipped.Location = New System.Drawing.Point(3, 47)
+        Me.Label_FramesSkipped.Name = "Label_FramesSkipped"
+        Me.Label_FramesSkipped.Size = New System.Drawing.Size(124, 18)
+        Me.Label_FramesSkipped.TabIndex = 3
+        Me.Label_FramesSkipped.Text = "Frames Skipped: "
         '
-        'Label4
+        'Label_BitRate
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label4.Location = New System.Drawing.Point(3, 11)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(51, 18)
-        Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Label4"
+        Me.Label_BitRate.AutoSize = True
+        Me.Label_BitRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_BitRate.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_BitRate.Location = New System.Drawing.Point(3, 11)
+        Me.Label_BitRate.Name = "Label_BitRate"
+        Me.Label_BitRate.Size = New System.Drawing.Size(64, 18)
+        Me.Label_BitRate.TabIndex = 2
+        Me.Label_BitRate.Text = "Bit Rate:"
         '
-        'Label5
+        'Label_MaxBitRate
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label5.Location = New System.Drawing.Point(3, 29)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(51, 18)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Label5"
+        Me.Label_MaxBitRate.AutoSize = True
+        Me.Label_MaxBitRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_MaxBitRate.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_MaxBitRate.Location = New System.Drawing.Point(3, 29)
+        Me.Label_MaxBitRate.Name = "Label_MaxBitRate"
+        Me.Label_MaxBitRate.Size = New System.Drawing.Size(100, 18)
+        Me.Label_MaxBitRate.TabIndex = 7
+        Me.Label_MaxBitRate.Text = "Max Bit Rate: "
         '
-        'Label6
+        'Label_BandWidth
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label6.Location = New System.Drawing.Point(3, 47)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(51, 18)
-        Me.Label6.TabIndex = 6
-        Me.Label6.Text = "Label6"
+        Me.Label_BandWidth.AutoSize = True
+        Me.Label_BandWidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_BandWidth.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_BandWidth.Location = New System.Drawing.Point(3, 47)
+        Me.Label_BandWidth.Name = "Label_BandWidth"
+        Me.Label_BandWidth.Size = New System.Drawing.Size(88, 18)
+        Me.Label_BandWidth.TabIndex = 6
+        Me.Label_BandWidth.Tag = ""
+        Me.Label_BandWidth.Text = "Band Width:"
         '
-        'Label7
+        'Label_MaxBandwidth
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label7.Location = New System.Drawing.Point(3, 65)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(51, 18)
-        Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Label7"
+        Me.Label_MaxBandwidth.AutoSize = True
+        Me.Label_MaxBandwidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_MaxBandwidth.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_MaxBandwidth.Location = New System.Drawing.Point(3, 65)
+        Me.Label_MaxBandwidth.Name = "Label_MaxBandwidth"
+        Me.Label_MaxBandwidth.Size = New System.Drawing.Size(116, 18)
+        Me.Label_MaxBandwidth.TabIndex = 5
+        Me.Label_MaxBandwidth.Text = "Max Bandwidth: "
         '
-        'Label8
+        'Label_ReceivedPackets
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label8.Location = New System.Drawing.Point(3, 11)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(51, 18)
-        Me.Label8.TabIndex = 4
-        Me.Label8.Text = "Label8"
+        Me.Label_ReceivedPackets.AutoSize = True
+        Me.Label_ReceivedPackets.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_ReceivedPackets.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_ReceivedPackets.Location = New System.Drawing.Point(3, 11)
+        Me.Label_ReceivedPackets.Name = "Label_ReceivedPackets"
+        Me.Label_ReceivedPackets.Size = New System.Drawing.Size(135, 18)
+        Me.Label_ReceivedPackets.TabIndex = 4
+        Me.Label_ReceivedPackets.Text = "Received Packets: "
         '
-        'Label9
+        'Label_RecoveredPackets
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label9.Location = New System.Drawing.Point(3, 29)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(51, 18)
-        Me.Label9.TabIndex = 8
-        Me.Label9.Text = "Label9"
+        Me.Label_RecoveredPackets.AutoSize = True
+        Me.Label_RecoveredPackets.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_RecoveredPackets.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_RecoveredPackets.Location = New System.Drawing.Point(3, 29)
+        Me.Label_RecoveredPackets.Name = "Label_RecoveredPackets"
+        Me.Label_RecoveredPackets.Size = New System.Drawing.Size(146, 18)
+        Me.Label_RecoveredPackets.TabIndex = 8
+        Me.Label_RecoveredPackets.Text = "Recovered Packets: "
         '
-        'Label10
+        'Label_LostPackets
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label10.Location = New System.Drawing.Point(3, 47)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(59, 18)
-        Me.Label10.TabIndex = 9
-        Me.Label10.Text = "Label10"
+        Me.Label_LostPackets.AutoSize = True
+        Me.Label_LostPackets.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_LostPackets.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_LostPackets.Location = New System.Drawing.Point(3, 47)
+        Me.Label_LostPackets.Name = "Label_LostPackets"
+        Me.Label_LostPackets.Size = New System.Drawing.Size(103, 18)
+        Me.Label_LostPackets.TabIndex = 9
+        Me.Label_LostPackets.Text = "Lost Packets: "
         '
-        'Label11
+        'Label_BufferingProgress
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label11.Location = New System.Drawing.Point(3, 11)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 18)
-        Me.Label11.TabIndex = 10
-        Me.Label11.Text = "Label11"
+        Me.Label_BufferingProgress.AutoSize = True
+        Me.Label_BufferingProgress.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_BufferingProgress.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_BufferingProgress.Location = New System.Drawing.Point(3, 11)
+        Me.Label_BufferingProgress.Name = "Label_BufferingProgress"
+        Me.Label_BufferingProgress.Size = New System.Drawing.Size(139, 18)
+        Me.Label_BufferingProgress.TabIndex = 10
+        Me.Label_BufferingProgress.Text = "Buffering Progress: "
         '
-        'Label12
+        'Label_BufferingTime
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label12.Location = New System.Drawing.Point(3, 29)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(59, 18)
-        Me.Label12.TabIndex = 11
-        Me.Label12.Text = "Label12"
+        Me.Label_BufferingTime.AutoSize = True
+        Me.Label_BufferingTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_BufferingTime.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_BufferingTime.Location = New System.Drawing.Point(3, 29)
+        Me.Label_BufferingTime.Name = "Label_BufferingTime"
+        Me.Label_BufferingTime.Size = New System.Drawing.Size(111, 18)
+        Me.Label_BufferingTime.TabIndex = 11
+        Me.Label_BufferingTime.Text = "Buffering Time: "
         '
-        'Label13
+        'Label_BufferingCount
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label13.Location = New System.Drawing.Point(3, 47)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(59, 18)
-        Me.Label13.TabIndex = 12
-        Me.Label13.Text = "Label13"
+        Me.Label_BufferingCount.AutoSize = True
+        Me.Label_BufferingCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_BufferingCount.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_BufferingCount.Location = New System.Drawing.Point(3, 47)
+        Me.Label_BufferingCount.Name = "Label_BufferingCount"
+        Me.Label_BufferingCount.Size = New System.Drawing.Size(118, 18)
+        Me.Label_BufferingCount.TabIndex = 12
+        Me.Label_BufferingCount.Text = "Buffering Count: "
         '
-        'Label14
+        'Label_DownloadProgress
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label14.Location = New System.Drawing.Point(3, 11)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(59, 18)
-        Me.Label14.TabIndex = 13
-        Me.Label14.Text = "Label14"
+        Me.Label_DownloadProgress.AutoSize = True
+        Me.Label_DownloadProgress.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_DownloadProgress.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_DownloadProgress.Location = New System.Drawing.Point(3, 11)
+        Me.Label_DownloadProgress.Name = "Label_DownloadProgress"
+        Me.Label_DownloadProgress.Size = New System.Drawing.Size(148, 18)
+        Me.Label_DownloadProgress.TabIndex = 13
+        Me.Label_DownloadProgress.Text = "Download Progress: "
         '
-        'Label15
+        'Label_ReceptionQuality
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label15.Location = New System.Drawing.Point(3, 29)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(59, 18)
-        Me.Label15.TabIndex = 14
-        Me.Label15.Text = "Label15"
+        Me.Label_ReceptionQuality.AutoSize = True
+        Me.Label_ReceptionQuality.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_ReceptionQuality.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_ReceptionQuality.Location = New System.Drawing.Point(3, 29)
+        Me.Label_ReceptionQuality.Name = "Label_ReceptionQuality"
+        Me.Label_ReceptionQuality.Size = New System.Drawing.Size(132, 18)
+        Me.Label_ReceptionQuality.TabIndex = 14
+        Me.Label_ReceptionQuality.Text = "Reception Quality: "
         '
-        'Label16
+        'Label_SourceProtocol
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label16.Location = New System.Drawing.Point(3, 47)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(59, 18)
-        Me.Label16.TabIndex = 15
-        Me.Label16.Text = "Label16"
+        Me.Label_SourceProtocol.AutoSize = True
+        Me.Label_SourceProtocol.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SourceProtocol.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_SourceProtocol.Location = New System.Drawing.Point(3, 47)
+        Me.Label_SourceProtocol.Name = "Label_SourceProtocol"
+        Me.Label_SourceProtocol.Size = New System.Drawing.Size(125, 18)
+        Me.Label_SourceProtocol.TabIndex = 15
+        Me.Label_SourceProtocol.Text = "Source Protocol: "
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Panel6)
+        Me.Panel1.Controls.Add(Me.Label_FrameRate)
+        Me.Panel1.Controls.Add(Me.Label_EncodedFrameRate)
+        Me.Panel1.Controls.Add(Me.Label_FramesSkipped)
+        Me.Panel1.Controls.Add(Me.Panel_Top1)
         Me.Panel1.Location = New System.Drawing.Point(15, 15)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(6, 6, 3, 6)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(256, 68)
         Me.Panel1.TabIndex = 16
         '
-        'Panel6
+        'Panel_Top1
         '
-        Me.Panel6.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel6.Location = New System.Drawing.Point(0, 0)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(256, 8)
-        Me.Panel6.TabIndex = 21
+        Me.Panel_Top1.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel_Top1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Top1.Name = "Panel_Top1"
+        Me.Panel_Top1.Size = New System.Drawing.Size(256, 8)
+        Me.Panel_Top1.TabIndex = 21
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Panel12)
-        Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.Panel_Top2)
+        Me.Panel2.Controls.Add(Me.Label_BitRate)
+        Me.Panel2.Controls.Add(Me.Label_MaxBandwidth)
+        Me.Panel2.Controls.Add(Me.Label_BandWidth)
+        Me.Panel2.Controls.Add(Me.Label_MaxBitRate)
         Me.Panel2.Location = New System.Drawing.Point(15, 95)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(6, 6, 3, 6)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(256, 86)
         Me.Panel2.TabIndex = 17
         '
-        'Panel12
+        'Panel_Top2
         '
-        Me.Panel12.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel12.Location = New System.Drawing.Point(0, 0)
-        Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(256, 8)
-        Me.Panel12.TabIndex = 22
-        '
-        'Panel3
-        '
-        Me.Panel3.AutoSize = True
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.Panel13)
-        Me.Panel3.Controls.Add(Me.Label8)
-        Me.Panel3.Controls.Add(Me.Label9)
-        Me.Panel3.Controls.Add(Me.Label10)
-        Me.Panel3.Location = New System.Drawing.Point(286, 95)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(6, 6, 3, 6)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(333, 86)
-        Me.Panel3.TabIndex = 18
-        '
-        'Panel13
-        '
-        Me.Panel13.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel13.Location = New System.Drawing.Point(0, 0)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(333, 8)
-        Me.Panel13.TabIndex = 22
-        '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Panel4.Controls.Add(Me.Panel15)
-        Me.Panel4.Controls.Add(Me.Label14)
-        Me.Panel4.Controls.Add(Me.Label15)
-        Me.Panel4.Controls.Add(Me.Label16)
-        Me.Panel4.Location = New System.Drawing.Point(15, 193)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(12, 6, 3, 6)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(256, 68)
-        Me.Panel4.TabIndex = 19
-        '
-        'Panel15
-        '
-        Me.Panel15.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel15.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel15.Location = New System.Drawing.Point(0, 0)
-        Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(256, 8)
-        Me.Panel15.TabIndex = 22
+        Me.Panel_Top2.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel_Top2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Top2.Name = "Panel_Top2"
+        Me.Panel_Top2.Size = New System.Drawing.Size(256, 8)
+        Me.Panel_Top2.TabIndex = 22
         '
         'Panel5
         '
         Me.Panel5.AutoSize = True
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Panel5.Controls.Add(Me.Panel16)
-        Me.Panel5.Controls.Add(Me.Label11)
-        Me.Panel5.Controls.Add(Me.Label12)
-        Me.Panel5.Controls.Add(Me.Label13)
-        Me.Panel5.Location = New System.Drawing.Point(286, 15)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(12, 6, 3, 6)
+        Me.Panel5.Controls.Add(Me.Panel_Top5)
+        Me.Panel5.Controls.Add(Me.Label_ReceivedPackets)
+        Me.Panel5.Controls.Add(Me.Label_RecoveredPackets)
+        Me.Panel5.Controls.Add(Me.Label_LostPackets)
+        Me.Panel5.Location = New System.Drawing.Point(286, 95)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(6, 6, 3, 6)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(333, 68)
-        Me.Panel5.TabIndex = 20
+        Me.Panel5.Size = New System.Drawing.Size(333, 86)
+        Me.Panel5.TabIndex = 18
         '
-        'Panel16
+        'Panel_Top5
         '
-        Me.Panel16.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel16.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel16.Location = New System.Drawing.Point(0, 0)
-        Me.Panel16.Name = "Panel16"
-        Me.Panel16.Size = New System.Drawing.Size(333, 8)
-        Me.Panel16.TabIndex = 22
+        Me.Panel_Top5.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel_Top5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top5.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Top5.Name = "Panel_Top5"
+        Me.Panel_Top5.Size = New System.Drawing.Size(333, 8)
+        Me.Panel_Top5.TabIndex = 22
         '
-        'Panel11
+        'Panel3
         '
-        Me.Panel11.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Panel11.Controls.Add(Me.Label19)
-        Me.Panel11.Controls.Add(Me.Panel14)
-        Me.Panel11.Controls.Add(Me.Label17)
-        Me.Panel11.Controls.Add(Me.Label18)
-        Me.Panel11.Location = New System.Drawing.Point(286, 193)
-        Me.Panel11.Margin = New System.Windows.Forms.Padding(12, 6, 3, 6)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(333, 68)
-        Me.Panel11.TabIndex = 25
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.Panel_Top3)
+        Me.Panel3.Controls.Add(Me.Label_DownloadProgress)
+        Me.Panel3.Controls.Add(Me.Label_ReceptionQuality)
+        Me.Panel3.Controls.Add(Me.Label_SourceProtocol)
+        Me.Panel3.Location = New System.Drawing.Point(15, 193)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(12, 6, 3, 6)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(256, 68)
+        Me.Panel3.TabIndex = 19
         '
-        'Label19
+        'Panel_Top3
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label19.Location = New System.Drawing.Point(3, 47)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(59, 18)
-        Me.Label19.TabIndex = 23
-        Me.Label19.Text = "Label19"
+        Me.Panel_Top3.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel_Top3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Top3.Name = "Panel_Top3"
+        Me.Panel_Top3.Size = New System.Drawing.Size(256, 8)
+        Me.Panel_Top3.TabIndex = 22
         '
-        'Panel14
+        'Panel4
         '
-        Me.Panel14.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel14.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel14.Location = New System.Drawing.Point(0, 0)
-        Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(333, 8)
-        Me.Panel14.TabIndex = 22
+        Me.Panel4.AutoSize = True
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.Panel_Top4)
+        Me.Panel4.Controls.Add(Me.Label_BufferingProgress)
+        Me.Panel4.Controls.Add(Me.Label_BufferingTime)
+        Me.Panel4.Controls.Add(Me.Label_BufferingCount)
+        Me.Panel4.Location = New System.Drawing.Point(286, 15)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(12, 6, 3, 6)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(333, 68)
+        Me.Panel4.TabIndex = 20
         '
-        'Label17
+        'Panel_Top4
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label17.Location = New System.Drawing.Point(3, 11)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(59, 18)
-        Me.Label17.TabIndex = 13
-        Me.Label17.Text = "Label17"
+        Me.Panel_Top4.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel_Top4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Top4.Name = "Panel_Top4"
+        Me.Panel_Top4.Size = New System.Drawing.Size(333, 8)
+        Me.Panel_Top4.TabIndex = 22
         '
-        'Label18
+        'Panel6
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label18.Location = New System.Drawing.Point(3, 29)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(59, 18)
-        Me.Label18.TabIndex = 14
-        Me.Label18.Text = "Label18"
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.Label_OpenState)
+        Me.Panel6.Controls.Add(Me.Panel_Top6)
+        Me.Panel6.Controls.Add(Me.Label_PlayerStatus)
+        Me.Panel6.Controls.Add(Me.Label_PlayState)
+        Me.Panel6.Location = New System.Drawing.Point(286, 193)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(12, 6, 3, 6)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(333, 68)
+        Me.Panel6.TabIndex = 25
+        '
+        'Label_OpenState
+        '
+        Me.Label_OpenState.AutoSize = True
+        Me.Label_OpenState.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_OpenState.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_OpenState.Location = New System.Drawing.Point(3, 47)
+        Me.Label_OpenState.Name = "Label_OpenState"
+        Me.Label_OpenState.Size = New System.Drawing.Size(90, 18)
+        Me.Label_OpenState.TabIndex = 23
+        Me.Label_OpenState.Text = "Open State: "
+        '
+        'Panel_Top6
+        '
+        Me.Panel_Top6.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel_Top6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top6.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Top6.Name = "Panel_Top6"
+        Me.Panel_Top6.Size = New System.Drawing.Size(333, 8)
+        Me.Panel_Top6.TabIndex = 22
+        '
+        'Label_PlayerStatus
+        '
+        Me.Label_PlayerStatus.AutoSize = True
+        Me.Label_PlayerStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PlayerStatus.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_PlayerStatus.Location = New System.Drawing.Point(3, 11)
+        Me.Label_PlayerStatus.Name = "Label_PlayerStatus"
+        Me.Label_PlayerStatus.Size = New System.Drawing.Size(103, 18)
+        Me.Label_PlayerStatus.TabIndex = 13
+        Me.Label_PlayerStatus.Text = "Player Status: "
+        '
+        'Label_PlayState
+        '
+        Me.Label_PlayState.AutoSize = True
+        Me.Label_PlayState.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_PlayState.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label_PlayState.Location = New System.Drawing.Point(3, 29)
+        Me.Label_PlayState.Name = "Label_PlayState"
+        Me.Label_PlayState.Size = New System.Drawing.Size(82, 18)
+        Me.Label_PlayState.TabIndex = 14
+        Me.Label_PlayState.Text = "Play State: "
         '
         'Form_Statistics
         '
@@ -419,10 +420,10 @@ Partial Class Form_Statistics
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(634, 275)
-        Me.Controls.Add(Me.Panel11)
-        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.ForeColor = System.Drawing.Color.WhiteSmoke
@@ -436,49 +437,49 @@ Partial Class Form_Statistics
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
-        Me.Panel11.ResumeLayout(False)
-        Me.Panel11.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Timer1 As Timer
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
+    Friend WithEvents Label_FrameRate As Label
+    Friend WithEvents Timer_Statistics As Timer
+    Friend WithEvents Label_EncodedFrameRate As Label
+    Friend WithEvents Label_FramesSkipped As Label
+    Friend WithEvents Label_BitRate As Label
+    Friend WithEvents Label_MaxBitRate As Label
+    Friend WithEvents Label_BandWidth As Label
+    Friend WithEvents Label_MaxBandwidth As Label
+    Friend WithEvents Label_ReceivedPackets As Label
+    Friend WithEvents Label_RecoveredPackets As Label
+    Friend WithEvents Label_LostPackets As Label
+    Friend WithEvents Label_BufferingProgress As Label
+    Friend WithEvents Label_BufferingTime As Label
+    Friend WithEvents Label_BufferingCount As Label
+    Friend WithEvents Label_DownloadProgress As Label
+    Friend WithEvents Label_ReceptionQuality As Label
+    Friend WithEvents Label_SourceProtocol As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel_Top1 As Panel
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Panel12 As Panel
-    Friend WithEvents Panel13 As Panel
-    Friend WithEvents Panel15 As Panel
-    Friend WithEvents Panel16 As Panel
-    Friend WithEvents Panel14 As Panel
-    Friend WithEvents Label19 As Label
+    Friend WithEvents Label_PlayerStatus As Label
+    Friend WithEvents Label_PlayState As Label
+    Friend WithEvents Panel_Top2 As Panel
+    Friend WithEvents Panel_Top5 As Panel
+    Friend WithEvents Panel_Top3 As Panel
+    Friend WithEvents Panel_Top4 As Panel
+    Friend WithEvents Panel_Top6 As Panel
+    Friend WithEvents Label_OpenState As Label
 End Class

@@ -2,70 +2,63 @@
 
     ' Form_Statistics - Load
     Private Sub Form_Statistics_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label1.Text = ""
-
-        Label2.Text = ""
-        Label3.Text = ""
-
-        Label4.Text = ""
-        Label5.Text = ""
-        Label6.Text = ""
-        Label7.Text = ""
-
-        Label8.Text = ""
-        Label9.Text = ""
-        Label10.Text = ""
-
-        Label11.Text = ""
-        Label12.Text = ""
-        Label13.Text = ""
-
-        Label14.Text = ""
-        Label15.Text = ""
-        Label16.Text = ""
-
-        Label17.Text = ""
-        Label18.Text = ""
-        Label19.Text = ""
+        Label_FrameRate.Text = ""
+        Label_EncodedFrameRate.Text = ""
+        Label_FramesSkipped.Text = ""
+        Label_BitRate.Text = ""
+        Label_MaxBitRate.Text = ""
+        Label_BandWidth.Text = ""
+        Label_MaxBandwidth.Text = ""
+        Label_ReceivedPackets.Text = ""
+        Label_RecoveredPackets.Text = ""
+        Label_LostPackets.Text = ""
+        Label_BufferingProgress.Text = ""
+        Label_BufferingTime.Text = ""
+        Label_BufferingCount.Text = ""
+        Label_DownloadProgress.Text = ""
+        Label_ReceptionQuality.Text = ""
+        Label_SourceProtocol.Text = ""
+        Label_PlayerStatus.Text = ""
+        Label_PlayState.Text = ""
+        Label_OpenState.Text = ""
     End Sub
 
-    'Timer1 - Tick
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        'Dim roundedFrameRate As Integer = CInt(Math.Round(MainForm.MediaPlayer.network.frameRate, 1))
+    'Timer_Statistics - Tick
+    Private Sub Timer_Statistics_Tick(sender As Object, e As EventArgs) Handles Timer_Statistics.Tick
         If Not Form_Main.MediaPlayer.network.frameRate = 0 Then
-            Label1.Text = "Frame Rate: " & Form_Main.MediaPlayer.network.frameRate \ 100
+            Label_FrameRate.Text = "Frame Rate: " & Form_Main.MediaPlayer.network.frameRate \ 100
         Else
-            Label1.Text = "Frame Rate: 0"
+            Label_FrameRate.Text = "Frame Rate: 0"
         End If
-        Label2.Text = "Encoded Frame Rate: " & Form_Main.MediaPlayer.network.encodedFrameRate
-        Label3.Text = "Frames Skipped: " & Form_Main.MediaPlayer.network.framesSkipped
+        Label_EncodedFrameRate.Text = "Encoded Frame Rate: " & Form_Main.MediaPlayer.network.encodedFrameRate
+        Label_FramesSkipped.Text = "Frames Skipped: " & Form_Main.MediaPlayer.network.framesSkipped
 
-        Label4.Text = "Bit Rate: " & FormatDataSize(Form_Main.MediaPlayer.network.bitRate)
-        Label5.Text = "Max BitRate: " & FormatDataSize(Form_Main.MediaPlayer.network.maxBitRate)
-        Label6.Text = "Band Width: " & FormatDataSize(Form_Main.MediaPlayer.network.bandWidth)
-        Label7.Text = "Max Bandwidth: " & FormatDataSize(Form_Main.MediaPlayer.network.maxBandwidth)
+        Label_BitRate.Text = "Bit Rate: " & FormatDataSize(Form_Main.MediaPlayer.network.bitRate)
+        Label_MaxBitRate.Text = "Max BitRate: " & FormatDataSize(Form_Main.MediaPlayer.network.maxBitRate)
+        Label_BandWidth.Text = "Band Width: " & FormatDataSize(Form_Main.MediaPlayer.network.bandWidth)
+        Label_MaxBandwidth.Text = "Max Bandwidth: " & FormatDataSize(Form_Main.MediaPlayer.network.maxBandwidth)
 
-        Label8.Text = "Received Packets: " & Form_Main.MediaPlayer.network.receivedPackets
-        Label9.Text = "Recovered Packets: " & Form_Main.MediaPlayer.network.recoveredPackets
-        Label10.Text = "Lost Packets: " & Form_Main.MediaPlayer.network.lostPackets
+        Label_ReceivedPackets.Text = "Received Packets: " & Form_Main.MediaPlayer.network.receivedPackets
+        Label_RecoveredPackets.Text = "Recovered Packets: " & Form_Main.MediaPlayer.network.recoveredPackets
+        Label_LostPackets.Text = "Lost Packets: " & Form_Main.MediaPlayer.network.lostPackets
 
-        Label11.Text = "Buffering Progress: " & Form_Main.MediaPlayer.network.bufferingProgress & "%"
-        Label12.Text = "Buffering Time: " & FormatBufferingTime(Form_Main.MediaPlayer.network.bufferingTime)
-        Label13.Text = "Buffering Count: " & Form_Main.MediaPlayer.network.bufferingCount
+        Label_BufferingProgress.Text = "Buffering Progress: " & Form_Main.MediaPlayer.network.bufferingProgress & "%"
+        Label_BufferingTime.Text = "Buffering Time: " & FormatBufferingTime(Form_Main.MediaPlayer.network.bufferingTime)
+        Label_BufferingCount.Text = "Buffering Count: " & Form_Main.MediaPlayer.network.bufferingCount
 
-        Label14.Text = "Download Progress: " & Form_Main.MediaPlayer.network.downloadProgress
-        Label15.Text = "Reception Quality: " & Form_Main.MediaPlayer.network.receptionQuality & "%"
+        Label_DownloadProgress.Text = "Download Progress: " & Form_Main.MediaPlayer.network.downloadProgress
+        Label_ReceptionQuality.Text = "Reception Quality: " & Form_Main.MediaPlayer.network.receptionQuality & "%"
 
-        Label16.Text = "Source Protocol: " & Form_Main.MediaPlayer.network.sourceProtocol
+        Label_SourceProtocol.Text = "Source Protocol: " & Form_Main.MediaPlayer.network.sourceProtocol
 
         If Form_Main.MediaPlayer.playState = WMPPlayState.wmppsPlaying Then
-            Label17.Text = "Player Status: " & Form_Main.MediaPlayer.status.Replace("'" & Form_Main.MediaPlayer.currentMedia.name.ToString & "':", "@")
+            Label_PlayerStatus.Text = "Player Status: " & Form_Main.MediaPlayer.status.Replace("'" & Form_Main.MediaPlayer.currentMedia.name.ToString & "':", "@")
         Else
-            Label17.Text = "Player Status: " & Form_Main.MediaPlayer.status
+            Label_PlayerStatus.Text = "Player Status: " & Form_Main.MediaPlayer.status
         End If
 
-        Label18.Text = "Play State: " & Form_Main.MediaPlayer.playState.ToString
-        Label19.Text = "Open State: " & Form_Main.MediaPlayer.openState.ToString
+        Label_PlayState.Text = "Play State: " & Form_Main.MediaPlayer.playState.ToString
+        Label_OpenState.Text = "Open State: " & Form_Main.MediaPlayer.openState.ToString
     End Sub
 
     'FormatDataSize

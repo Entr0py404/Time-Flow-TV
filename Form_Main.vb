@@ -9,31 +9,30 @@ Imports Microsoft.VisualBasic.Devices
 Public Class Form_Main
     Private CurrentChannel_videoFiles As String()
     Private CurrentChannel_videoDurations As Integer()
+    Private FavoritesChannelsList As String()
+
     Private currentIndex As Integer = 0
     Private currentChannel As Integer = 0
-    Private currentChannelName As String = ""
-    Private PopoutDesktopMode As Boolean = False
     Private elapsedTime As Integer = 0
-
-    Private ContentListModeShuffled As Boolean = True
     Private DefaultChannelIconNumber As Integer = 1
+    Private DefaultChannelSize As Integer = 119
+    Private MinSizePanelChannels As Integer = 398
+
+    Private currentChannelName As String = ""
+    Private currentChannelCFG As String = ""
+
+    Private PopoutDesktopMode As Boolean = False
+    Private ContentListModeShuffled As Boolean = True
+    Private OnlyFavoritesShown As Boolean = False
 
     Private targetOpacity As Double = 1.0
     Private currentOpacity As Double = 0.0
 
     Private AutoComplete_Channels As New AutoCompleteStringCollection()
     Private AutoComplete_FavoriteChannels As New AutoCompleteStringCollection()
-    Private OnlyFavoritesShown As Boolean = False
 
-    Private FavoritesChannelsList As String()
-
-    Dim FavoriteChannelsFilePath As String = Application.StartupPath & "\Favorite Channels.cfg"
-
-    Private currentChannelCFG As String = ""
-
-    Dim OriginalPanelSize As New Size
-    Dim DefaultChannelSize As Integer = 119
-    Dim MinSizePanelChannels As Integer = 398
+    Private FavoriteChannelsFilePath As String = Application.StartupPath & "\Favorite Channels.cfg"
+    Private OriginalPanelSize As New Size
 
     ' MainForm - Load
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -73,11 +72,11 @@ Public Class Form_Main
         MediaPlayer.settings.volume = 100
 
         If MediaPlayer.stretchToFit Then
-            StretchToFitToolStripMenuItem1.Checked = True
             StretchToFitToolStripMenuItem.Checked = True
+            StretchToFitToolStripMenuItem2.Checked = True
         Else
-            StretchToFitToolStripMenuItem1.Checked = False
             StretchToFitToolStripMenuItem.Checked = False
+            StretchToFitToolStripMenuItem2.Checked = False
         End If
 
         ToolStripStatusLabel_CurrentChannelNumber.Text = ""
@@ -103,11 +102,7 @@ Public Class Form_Main
     ' PlayVideoAtCurrentTime
     Private Sub PlayVideoAtCurrentTime()
 
-        ' Get the current UTC time and convert it to Central Time.
-        ' Dim currentTimeUTC As DateTime = DateTime.UtcNow
-        ' Dim centralTime As DateTime = DateTime.UtcNow ' TimeZoneInfo.ConvertTimeFromUtc(currentTimeUTC, TimeZoneInfo.FindSystemTimeZoneById("Mountain Standard Time"))
-
-        ' Get the current UTC time and convert it to Central Time.
+        ' Get the current UTC time and convert it to Mountain Standard Time.
         Dim currentTimeUTC As DateTime = DateTime.UtcNow
         Dim centralTime As DateTime = TimeZoneInfo.ConvertTimeFromUtc(currentTimeUTC, TimeZoneInfo.FindSystemTimeZoneById("Mountain Standard Time"))
 
@@ -202,7 +197,6 @@ Public Class Form_Main
 
         ' Load the new video.
         MediaPlayer.URL = videoFile
-        'Console.WriteLine(MediaPlayer.URL)
 
         ' Seek to the specified playback position.
         If playbackPosition > 0 Then
@@ -217,28 +211,27 @@ Public Class Form_Main
 
         ' Update the currentIndex to ensure it stays within the valid range.
         currentIndex = currentIndex Mod CurrentChannel_videoFiles.Length
-        'Console.WriteLine("currentIndex: " & currentIndex)
     End Sub
 
     ' ChannelLabel - MouseEnter
     Private Sub ChannelLabel_MouseEnter(sender As Object, e As EventArgs)
-        If Not DirectCast(sender, Label).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, Label)
-            DirectCast(sender, Label).BackColor = Color.DodgerBlue ' DirectCast(sender, Label)
+        If Not DirectCast(sender, Label).BackColor = Color.MediumSeaGreen Then
+            DirectCast(sender, Label).BackColor = Color.DodgerBlue
         End If
     End Sub
 
     ' ChannelLabel - MouseLeave
     Private Sub ChannelLabel_MouseLeave(sender As Object, e As EventArgs)
-        If Not DirectCast(sender, Label).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, Label)
-            DirectCast(sender, Label).BackColor = Color.FromArgb(28, 30, 34) ' DirectCast(sender, Label)
+        If Not DirectCast(sender, Label).BackColor = Color.MediumSeaGreen Then
+            DirectCast(sender, Label).BackColor = Color.FromArgb(28, 30, 34)
         End If
     End Sub
 
     ' ChannelLabel - Click
     Private Sub ChannelLabel_Click(sender As Object, e As MouseEventArgs)
         If e.Button = MouseButtons.Left Then
-            currentChannel = FlowLayoutPanel_Channels.Controls.GetChildIndex(DirectCast(sender, Label).Parent) ' DirectCast(sender, Label)
-            'currentChannel = DirectCast(sender, Label).Parent.Parent.Controls.GetChildIndex(DirectCast(sender, Label).Parent) ' DirectCast(sender, Label)
+            currentChannel = FlowLayoutPanel_Channels.Controls.GetChildIndex(DirectCast(sender, Label).Parent)
+            'currentChannel = DirectCast(sender, Label).Parent.Parent.Controls.GetChildIndex(DirectCast(sender, Label).Parent)
 
             ColorizeCurrentChannel()
             UpdateURLsList()
@@ -252,12 +245,12 @@ Public Class Form_Main
     ' ChannelImage - MouseEnter
     Private Sub ChannelImage_MouseEnter(sender As Object, e As EventArgs)
         If CompactToolStripMenuItem.Checked Then
-            If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
-                DirectCast(sender, PictureBox).BackColor = Color.DodgerBlue ' DirectCast(sender, PictureBox)
+            If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then
+                DirectCast(sender, PictureBox).BackColor = Color.DodgerBlue
             End If
         Else
-            If Not DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
-                DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.DodgerBlue ' DirectCast(sender, PictureBox)
+            If Not DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.MediumSeaGreen Then
+                DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.DodgerBlue
             End If
         End If
     End Sub
@@ -265,12 +258,12 @@ Public Class Form_Main
     ' ChannelImage - MouseLeave
     Private Sub ChannelImage_MouseLeave(sender As Object, e As EventArgs)
         If CompactToolStripMenuItem.Checked Then
-            If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
-                DirectCast(sender, PictureBox).BackColor = Color.FromArgb(28, 30, 34) ' DirectCast(sender, PictureBox)
+            If Not DirectCast(sender, PictureBox).BackColor = Color.MediumSeaGreen Then
+                DirectCast(sender, PictureBox).BackColor = Color.FromArgb(28, 30, 34)
             End If
         Else
-            If Not DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.MediumSeaGreen Then ' DirectCast(sender, PictureBox)
-                DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.FromArgb(28, 30, 34) ' DirectCast(sender, PictureBox)
+            If Not DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.MediumSeaGreen Then
+                DirectCast(sender, PictureBox).Parent.Controls.Item(0).BackColor = Color.FromArgb(28, 30, 34)
             End If
         End If
     End Sub
@@ -278,7 +271,7 @@ Public Class Form_Main
     ' ChannelImage - Click
     Private Sub ChannelImage_Click(sender As Object, e As MouseEventArgs)
         If e.Button = MouseButtons.Left Then
-            currentChannel = FlowLayoutPanel_Channels.Controls.GetChildIndex(DirectCast(sender, PictureBox).Parent) ' DirectCast(sender, PictureBox)
+            currentChannel = FlowLayoutPanel_Channels.Controls.GetChildIndex(DirectCast(sender, PictureBox).Parent)
             ColorizeCurrentChannel()
             UpdateURLsList()
 
@@ -399,7 +392,7 @@ Public Class Form_Main
                 FlowLayoutPanel_Channels.ScrollControlIntoView(FlowLayoutPanel_Channels.Controls.Item(currentChannel))
             End If
         ElseIf PressedKey = Keys.C Then ' ChannelsList 
-            ChannelsListToolStripMenuItem1.PerformClick()
+            ChannelsListToolStripMenuItem.PerformClick()
         ElseIf PressedKey = Keys.F11 Then
             If MediaPlayer.fullScreen Then
                 MediaPlayer.fullScreen = False
@@ -444,20 +437,20 @@ Public Class Form_Main
     Private Sub UpdateURLsList()
         If CurrentChannel_videoFiles IsNot Nothing Then
             Form_ChannelContent.Label1.Text = currentChannelName
-            Form_ChannelContent.ListBox1.BeginUpdate()
-            Form_ChannelContent.ListBox1.Items.Clear()
+            Form_ChannelContent.ListBox_ChannelContent.BeginUpdate()
+            Form_ChannelContent.ListBox_ChannelContent.Items.Clear()
             For Each videoFileURl In CurrentChannel_videoFiles
                 Dim urlname As String = videoFileURl.Replace("https://archive.org/download/", "")
-                Form_ChannelContent.ListBox1.Items.Add(urlname)
+                Form_ChannelContent.ListBox_ChannelContent.Items.Add(urlname)
             Next
             ' URLsList.ListBox1.Items.AddRange(CurrentChannel_videoFiles)
 
-            Form_ChannelContent.ListBox1.EndUpdate()
+            Form_ChannelContent.ListBox_ChannelContent.EndUpdate()
 
             Form_ChannelContent.Label2.Text = MediaPlayer.currentMedia.name.ToString()
 
-            If Not currentIndex > Form_ChannelContent.ListBox1.Items.Count - 1 Then
-                Form_ChannelContent.ListBox1.SelectedIndex = currentIndex
+            If Not currentIndex > Form_ChannelContent.ListBox_ChannelContent.Items.Count - 1 Then
+                Form_ChannelContent.ListBox_ChannelContent.SelectedIndex = currentIndex
             End If
         End If
     End Sub
@@ -520,7 +513,7 @@ Public Class Form_Main
     Private Sub MainForm_ResizeEnd(sender As Object, e As EventArgs) Handles Me.ResizeEnd
         If PopoutDesktopMode Then
             Me.FormBorderStyle = FormBorderStyle.None
-            If MediaAspectAutoInPopoutModeToolStripMenuItem1.Checked Then
+            If MediaAspectAutoInPopoutModeToolStripMenuItem.Checked Then
                 CalculateVideoAspectRatio_ResizeToAspectResolution()
             End If
         Else
@@ -642,7 +635,6 @@ Public Class Form_Main
                 End If
 
                 'Console.WriteLine(ImagePathStr)
-
                 CreateChannel(ChannelNameStr, CFGFile, ImagePathStr)
             Next
 
@@ -658,15 +650,19 @@ Public Class Form_Main
                 End If
 
                 'Console.WriteLine(ImagePathStr)
-
                 CreateChannel(ChannelNameStr, CFGFile, ImagePathStr)
             Next
 
         End If
 
         TextBox_SearchByChannelName.AutoCompleteCustomSource = AutoComplete_Channels
-        FlowLayoutPanel_Channels.ResumeLayout()
+
+
         FlowLayoutPanel_Channels.Visible = True
+        FlowLayoutPanel_Channels.ResumeLayout(True)
+        FlowLayoutPanel_Channels.PerformLayout()
+
+        'FlowLayoutPanel_Channels.Refresh()
 
         NumericUpDown_SearchByChannelNumber.Maximum = FlowLayoutPanel_Channels.Controls.Count - 1
     End Sub
@@ -683,7 +679,6 @@ Public Class Form_Main
         ChannelPanel.BackColor = Color.FromArgb(28, 30, 34)
         ChannelPanel.Name = "Panel_Channel"
         ChannelPanel.Margin = New Padding(12, 6, 3, 6)
-
 
         ' Label
         Dim ChannelNumberLabel = New Label
@@ -706,7 +701,6 @@ Public Class Form_Main
             ChannelNumberLabel.ForeColor = Color.WhiteSmoke
         End If
         ChannelNumberLabel.Font = New Font("Microsoft Sans Serif", 11.25!, FontStyle.Regular, GraphicsUnit.Point, CType(0, Byte))
-
 
         ' PictureBox
         Dim ChannelPictureBox = New PictureBox
@@ -795,8 +789,6 @@ Public Class Form_Main
     Private Sub CalculateVideoAspectRatio_ResizeToAspectResolution()
         If MediaPlayer.playState = WMPPlayState.wmppsPlaying Then
             ' Calculate aspect ratio from width and height
-            'Dim width As Integer = 1920 ' Example width
-            'Dim height As Integer = 1080 ' Example height
             Dim aspectRatio As Double = CDbl(MediaPlayer.currentMedia.imageSourceWidth) / MediaPlayer.currentMedia.imageSourceHeight
 
             ' Call the ResizeToAspectResolution method with the calculated aspect ratio
@@ -889,15 +881,14 @@ Public Class Form_Main
         MediaPlayer.uiMode = "none"
         Me.FormBorderStyle = FormBorderStyle.None
         Me.TopMost = True
-        AlwaysOnTopToolStripMenuItem1.Checked = True
         AlwaysOnTopToolStripMenuItem.Checked = True
+        AlwaysOnTopToolStripMenuItem2.Checked = True
 
-        ShowPlayerControlsToolStripMenuItem.Checked = False
+        ShowPlayerControlsToolStripMenuItem2.Checked = False
 
-        'SplitContainer1.Panel2Collapsed = True
         PanelChannelsListVisiblityWorkAround(False)
 
-        If MediaAspectAutoInPopoutModeToolStripMenuItem1.Checked Then
+        If MediaAspectAutoInPopoutModeToolStripMenuItem.Checked Then
             CalculateVideoAspectRatio_ResizeToAspectResolution()
         End If
 
@@ -910,14 +901,14 @@ Public Class Form_Main
         MenuStrip1.Show()
         StatusStrip_PlayerStatus.Show()
 
-        If ShowPlayerControlsToolStripMenuItem1.Checked = True Then
+        If ShowPlayerControlsToolStripMenuItem.Checked = True Then
             MediaPlayer.uiMode = "full"
         End If
 
         Me.FormBorderStyle = FormBorderStyle.Sizable
         Me.TopMost = False
-        AlwaysOnTopToolStripMenuItem1.Checked = False
         AlwaysOnTopToolStripMenuItem.Checked = False
+        AlwaysOnTopToolStripMenuItem2.Checked = False
 
         If MediaAspectAutoInNormalModeToolStripMenuItem.Checked Then
             CalculateVideoAspectRatio_ResizeToAspectResolution()
@@ -934,12 +925,10 @@ Public Class Form_Main
             currentOpacity += 0.1 ' Adjust this value for smoother/faster fade
             If currentOpacity > targetOpacity Then
                 currentOpacity = targetOpacity
-                Timer_OpeningFade.Stop()
-                'Console.WriteLine("Timer_OpeningFade.Stop()")
+                Timer_OpeningFade.Stop() ' Stop the Timer if opacity reaches the target
             End If
             Me.Opacity = currentOpacity
         Else
-            'Console.WriteLine("Timer_OpeningFade.Stop()")
             Timer_OpeningFade.Stop() ' Stop the Timer if opacity reaches the target
         End If
     End Sub
@@ -952,38 +941,35 @@ Public Class Form_Main
         Form_Statistics.Close()
 
         ' Fade out opcaity and volume
-        Dim Count As Integer
         For Counter = 75 To 0 Step -5
-            Count = Counter
-            Me.Opacity = Count / 100
+            Me.Opacity = Counter / 100
             Me.Refresh()
-            Threading.Thread.Sleep(50)
+            Threading.Thread.Sleep(5)
             MediaPlayer.settings.volume -= 5
         Next Counter
     End Sub
 
-    ' ChannelsList - ToolStripMenuItem1 - Click
-    Private Sub ChannelsListToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ChannelsListToolStripMenuItem1.Click
+    ' ChannelsList - ToolStripMenuItem - Click
+    Private Sub ChannelsListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChannelsListToolStripMenuItem.Click
         If Splitter1.Visible = True Then
-
             PanelChannelsListVisiblityWorkAround(False)
         Else
             PanelChannelsListVisiblityWorkAround(True)
         End If
     End Sub
 
-    ' PopoutMode - ToolStripMenuItem1 - Click
-    Private Sub PopoutModeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PopoutModeToolStripMenuItem1.Click
+    ' ChannelsList - ToolStripMenuItem2 - Click
+    Private Sub ChannelsListToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ChannelsListToolStripMenuItem2.Click
+        ChannelsListToolStripMenuItem.PerformClick()
+    End Sub
+
+    ' PopoutMode - ToolStripMenuItem - Click
+    Private Sub PopoutModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PopoutModeToolStripMenuItem.Click
         SetPopoutDesktopMode_True()
     End Sub
 
-    ' ChannelsList - ToolStripMenuItem - Click
-    Private Sub ChannelsListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChannelsListToolStripMenuItem.Click
-        ChannelsListToolStripMenuItem1.PerformClick()
-    End Sub
-
-    ' NormalPopoutToggleMode - ToolStripMenuItem - Click
-    Private Sub NormalPopoutToggleModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NormalPopoutToggleModeToolStripMenuItem.Click
+    ' NormalPopoutToggleMode - ToolStripMenuItem2 - Click
+    Private Sub NormalPopoutToggleModeToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles NormalPopoutToggleModeToolStripMenuItem2.Click
         If PopoutDesktopMode Then
             SetPopoutDesktopMode_False()
         Else
@@ -991,8 +977,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' Resize - ToolStripMenuItem - Click
-    Private Sub ResizeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResizeToolStripMenuItem.Click
+    ' Resize - ToolStripMenuItem2 - Click
+    Private Sub ResizeToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ResizeToolStripMenuItem2.Click
         If PopoutDesktopMode Then
             Me.FormBorderStyle = FormBorderStyle.Sizable
         End If
@@ -1002,78 +988,54 @@ Public Class Form_Main
     Private Sub AlwaysOnTopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlwaysOnTopToolStripMenuItem.Click
         If Me.TopMost Then
             Me.TopMost = False
-            AlwaysOnTopToolStripMenuItem1.Checked = False
             AlwaysOnTopToolStripMenuItem.Checked = False
+            AlwaysOnTopToolStripMenuItem2.Checked = False
         Else
             Me.TopMost = True
-            AlwaysOnTopToolStripMenuItem1.Checked = True
             AlwaysOnTopToolStripMenuItem.Checked = True
+            AlwaysOnTopToolStripMenuItem2.Checked = True
         End If
     End Sub
 
-    ' AlwaysOnTop - ToolStripMenuItem1 - Click
-    Private Sub AlwaysOnTopToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AlwaysOnTopToolStripMenuItem1.Click
-        If Me.TopMost Then
-            Me.TopMost = False
-            AlwaysOnTopToolStripMenuItem1.Checked = False
-            AlwaysOnTopToolStripMenuItem.Checked = False
-        Else
-            Me.TopMost = True
-            AlwaysOnTopToolStripMenuItem1.Checked = True
-            AlwaysOnTopToolStripMenuItem.Checked = True
-        End If
+    ' AlwaysOnTop - ToolStripMenuItem2 - Click
+    Private Sub AlwaysOnTopToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles AlwaysOnTopToolStripMenuItem2.Click
+        AlwaysOnTopToolStripMenuItem.PerformClick()
     End Sub
 
     ' StretchToFit - ToolStripMenuItem - Click
     Private Sub StretchToFitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StretchToFitToolStripMenuItem.Click
         If MediaPlayer.stretchToFit Then
             MediaPlayer.stretchToFit = False
-            StretchToFitToolStripMenuItem1.Checked = False
             StretchToFitToolStripMenuItem.Checked = False
+            StretchToFitToolStripMenuItem2.Checked = False
         Else
             MediaPlayer.stretchToFit = True
-            StretchToFitToolStripMenuItem1.Checked = True
             StretchToFitToolStripMenuItem.Checked = True
+            StretchToFitToolStripMenuItem2.Checked = True
         End If
     End Sub
 
-    ' StretchToFit - ToolStripMenuItem1 - Click
-    Private Sub StretchToFitToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles StretchToFitToolStripMenuItem1.Click
-        If MediaPlayer.stretchToFit Then
-            MediaPlayer.stretchToFit = False
-            StretchToFitToolStripMenuItem1.Checked = False
-            StretchToFitToolStripMenuItem.Checked = False
-        Else
-            MediaPlayer.stretchToFit = True
-            StretchToFitToolStripMenuItem1.Checked = True
-            StretchToFitToolStripMenuItem.Checked = True
-        End If
+    ' StretchToFit - ToolStripMenuItem2 - Click
+    Private Sub StretchToFitToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles StretchToFitToolStripMenuItem2.Click
+        StretchToFitToolStripMenuItem.PerformClick()
     End Sub
 
-    ' PlayerControls - ToolStripMenuItem1 - Click
-    Private Sub PlayerControlsToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ShowPlayerControlsToolStripMenuItem1.Click
+    ' ShowPlayerControls - ToolStripMenuItem - Click
+    Private Sub ShowPlayerControlsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowPlayerControlsToolStripMenuItem.Click
         If MediaPlayer.uiMode = "none" Then
             MediaPlayer.uiMode = "full"
+            ShowPlayerControlsToolStripMenuItem2.Checked = True
             ShowPlayerControlsToolStripMenuItem.Checked = True
-            ShowPlayerControlsToolStripMenuItem1.Checked = True
         Else
             MediaPlayer.uiMode = "none"
+            ShowPlayerControlsToolStripMenuItem2.Checked = False
             ShowPlayerControlsToolStripMenuItem.Checked = False
-            ShowPlayerControlsToolStripMenuItem1.Checked = False
         End If
     End Sub
 
-    ' PlayerControls - ToolStripMenuItem - Click
-    Private Sub PlayerControlsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowPlayerControlsToolStripMenuItem.Click
-        If MediaPlayer.uiMode = "none" Then
-            MediaPlayer.uiMode = "full"
-            ShowPlayerControlsToolStripMenuItem.Checked = True
-            ShowPlayerControlsToolStripMenuItem1.Checked = True
-        Else
-            MediaPlayer.uiMode = "none"
-            ShowPlayerControlsToolStripMenuItem.Checked = False
-            ShowPlayerControlsToolStripMenuItem1.Checked = False
-        End If
+    ' ShowPlayerControls - ToolStripMenuItem2 - Click
+    Private Sub ShowPlayerControlsToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ShowPlayerControlsToolStripMenuItem2.Click
+        ShowPlayerControlsToolStripMenuItem.PerformClick()
     End Sub
 
     ' ResizeToMediaSource - ToolStripMenuItem - Click
@@ -1081,9 +1043,9 @@ Public Class Form_Main
         ResizeToMedia()
     End Sub
 
-    ' ResizeToMediaSource - ToolStripMenuItem1 - Click
-    Private Sub ResizeToMediaSourceToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ResizeToMediaSourceToolStripMenuItem1.Click
-        ResizeToMedia()
+    ' ResizeToMediaSource - ToolStripMenuItem2 - Click
+    Private Sub ResizeToMediaSourceToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ResizeToMediaSourceToolStripMenuItem2.Click
+        ResizeToMediaSourceToolStripMenuItem.PerformClick()
     End Sub
 
     ' ContentListModeSorted - ToolStripMenuItem - Click
@@ -1114,34 +1076,29 @@ Public Class Form_Main
         'End If
     End Sub
 
-    ' ResizeToMediaAspect - ToolStripMenuItem1 - Click
-    Private Sub ResizeToMediaAspectToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ResizeToMediaAspectToolStripMenuItem1.Click
-        CalculateVideoAspectRatio_ResizeToAspectResolution()
-    End Sub
-
     ' ResizeToMediaAspect - ToolStripMenuItem - Click
     Private Sub ResizeToMediaAspectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResizeToMediaAspectToolStripMenuItem.Click
         CalculateVideoAspectRatio_ResizeToAspectResolution()
     End Sub
 
-    ' MediaAspectAutoInPopoutMode - ToolStripMenuItem - Click
+    ' ResizeToMediaAspect - ToolStripMenuItem2 - Click
+    Private Sub ResizeToMediaAspectToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ResizeToMediaAspectToolStripMenuItem2.Click
+        ResizeToMediaAspectToolStripMenuItem.PerformClick()
+    End Sub
+
+    'MediaAspectAutoInPopoutMode - ToolStripMenuItem - Click
     Private Sub MediaAspectAutoInPopoutModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MediaAspectAutoInPopoutModeToolStripMenuItem.Click
         If MediaAspectAutoInPopoutModeToolStripMenuItem.Checked Then
-            MediaAspectAutoInPopoutModeToolStripMenuItem1.Checked = True
+            MediaAspectAutoInPopoutModeToolStripMenuItem2.Checked = True
             CalculateVideoAspectRatio_ResizeToAspectResolution()
         Else
-            MediaAspectAutoInPopoutModeToolStripMenuItem1.Checked = False
+            MediaAspectAutoInPopoutModeToolStripMenuItem2.Checked = False
         End If
     End Sub
 
-    'MediaAspectAutoInPopoutMode - ToolStripMenuItem1 - Click
-    Private Sub MediaAspectAutoInPopoutModeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles MediaAspectAutoInPopoutModeToolStripMenuItem1.Click
-        If MediaAspectAutoInPopoutModeToolStripMenuItem1.Checked Then
-            MediaAspectAutoInPopoutModeToolStripMenuItem.Checked = True
-            CalculateVideoAspectRatio_ResizeToAspectResolution()
-        Else
-            MediaAspectAutoInPopoutModeToolStripMenuItem.Checked = False
-        End If
+    ' MediaAspectAutoInPopoutMode - ToolStripMenuItem2 - Click
+    Private Sub MediaAspectAutoInPopoutModeToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles MediaAspectAutoInPopoutModeToolStripMenuItem2.Click
+        MediaAspectAutoInPopoutModeToolStripMenuItem.PerformClick()
     End Sub
 
     ' MediaAspectAutoInNormalMode - ToolStripMenuItem - Click
@@ -1151,8 +1108,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' ChannelContent - ToolStripMenuItem - Click
-    Private Sub ChannelContentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChannelContentToolStripMenuItem.Click
+    ' ChannelContentList - ToolStripMenuItem - Click
+    Private Sub ChannelContentListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChannelContentListToolStripMenuItem.Click
         If Not Form_ChannelContent.Visible Then
             Form_ChannelContent.Show()
             Form_ChannelContent.BringToFront()
@@ -1246,7 +1203,6 @@ Public Class Form_Main
         Scale8ToolStripMenuItem.Checked = False
     End Sub
 
-
     ' Compact - ToolStripMenuItem - Click
     Private Sub CompactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompactToolStripMenuItem.Click
 
@@ -1307,8 +1263,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' X - ToolStripMenuItem - Click
-    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseChannelsListToolStripMenuItem.Click
+    ' CloseChannelsList - ToolStripMenuItem - Click
+    Private Sub CloseChannelsListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseChannelsListToolStripMenuItem.Click
         PanelChannelsListVisiblityWorkAround(False)
     End Sub
 
@@ -1317,7 +1273,7 @@ Public Class Form_Main
         If CurrentChannel_videoDurations IsNot Nothing Then
             Dim ts As TimeSpan = TimeSpan.FromSeconds(CurrentChannel_videoDurations.Sum)
             Dim mydate As DateTime = New DateTime(ts.Ticks)
-            MsgBox("Current channel ( " & currentChannelName & " ) content duration: " & mydate.ToString("HH:mm:ss") & vbNewLine & vbNewLine & "Target content duration for all channels is one week: 168 Hours.", MsgBoxStyle.Information)
+            MsgBox("Current channel: " & currentChannelName & vbNewLine & "Content duration: " & mydate.ToString("HH:mm:ss"), MsgBoxStyle.Information) ' & vbNewLine & vbNewLine & "Target content duration for all channels is one week: 168 Hours.", MsgBoxStyle.Information)
         End If
     End Sub
 
@@ -1348,30 +1304,30 @@ Public Class Form_Main
            , MsgBoxStyle.Information)
     End Sub
 
-    'SubOpacity - ToolStripMenuItem - Click
-    Private Sub SubOpacityToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubOpacityToolStripMenuItem.Click
+    'SubOpacity - ToolStripMenuItem2 - Click
+    Private Sub SubOpacityToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles SubOpacityToolStripMenuItem2.Click
         If Not Me.Opacity <= 0.3 Then
             'If Not ContextMenuStrip1.Visible Then
             ContextMenuStrip_MediaPlayer.Show()
             ' End If
-            OpacityToolStripMenuItem.ShowDropDown()
+            OpacityToolStripMenuItem2.ShowDropDown()
             Me.Opacity -= 0.1
         End If
     End Sub
 
-    'PlusOpacity - ToolStripMenuItem - Click
-    Private Sub PlusOpacityToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PlusOpacityToolStripMenuItem.Click
+    'PlusOpacity - ToolStripMenuItem2 - Click
+    Private Sub PlusOpacityToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles PlusOpacityToolStripMenuItem2.Click
         If Not Me.Opacity >= 1.0 Then
             ' If Not ContextMenuStrip1.Visible Then
             ContextMenuStrip_MediaPlayer.Show()
             ' End If
-            OpacityToolStripMenuItem.ShowDropDown()
+            OpacityToolStripMenuItem2.ShowDropDown()
             Me.Opacity += 0.1
         End If
     End Sub
 
-    ' Opacity100 - ToolStripMenuItem - Click
-    Private Sub Opacity100ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Opacity100ToolStripMenuItem.Click
+    ' Opacity100 - ToolStripMenuItem2 - Click
+    Private Sub Opacity100ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles Opacity100ToolStripMenuItem2.Click
         Me.Opacity = 1.0
     End Sub
 
@@ -1389,8 +1345,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' TextBox1 - KeyDown
-    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox_SearchByChannelName.KeyDown
+    ' TextBox_SearchByChannelName - KeyDown
+    Private Sub TextBox_SearchByChannelName_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox_SearchByChannelName.KeyDown
         If e.KeyData = Keys.Enter Then
             If TextBox_SearchByChannelName.Text.Length > 0 Then
                 e.Handled = True
@@ -1416,8 +1372,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' NumericUpDown1 - ValueChanged
-    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown_SearchByChannelNumber.ValueChanged
+    ' NumericUpDown_SearchByChannelNumber - ValueChanged
+    Private Sub NumericUpDown_SearchByChannelNumber_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown_SearchByChannelNumber.ValueChanged
         If NumericUpDown_SearchByChannelNumber.Maximum > -1 Then
             If FlowLayoutPanel_Channels.Controls.Item(CInt(NumericUpDown_SearchByChannelNumber.Value)).Visible Then
                 currentChannel = CInt(NumericUpDown_SearchByChannelNumber.Value)
@@ -1427,8 +1383,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' NumericUpDown1 - KeyDown
-    Private Sub NumericUpDown1_KeyDown(sender As Object, e As KeyEventArgs) Handles NumericUpDown_SearchByChannelNumber.KeyDown
+    ' NumericUpDown_SearchByChannelNumber - KeyDown
+    Private Sub NumericUpDown_SearchByChannelNumber_KeyDown(sender As Object, e As KeyEventArgs) Handles NumericUpDown_SearchByChannelNumber.KeyDown
         If e.KeyData = Keys.Enter Then
             e.Handled = True
             e.SuppressKeyPress = True
@@ -1484,9 +1440,8 @@ Public Class Form_Main
     'AddRemoveFavorites - ToolStripMenuItem - Click
     Private Sub AddRemoveFavoritesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddRemoveFavoritesToolStripMenuItem.Click
         If ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(2).ForeColor = Color.Goldenrod Then
-            'Console.WriteLine(ContextMenuStrip2.SourceControl.Parent.Controls.Item(0).Text)
-            ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(2).ForeColor = Color.WhiteSmoke
 
+            ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(2).ForeColor = Color.WhiteSmoke
 
             Dim lineToRemove As String = ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(0).Text
 
@@ -1511,7 +1466,6 @@ Public Class Form_Main
                 Console.WriteLine("An error occurred: " & ex.Message)
             End Try
         Else
-            'Console.WriteLine(ContextMenuStrip2.SourceControl.Parent.Controls.Item(0).Text)
             ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(2).ForeColor = Color.Goldenrod
             File.AppendAllText(FavoriteChannelsFilePath, ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(0).Text & Environment.NewLine)
             FavoritesChannelsList = File.ReadAllLines(FavoriteChannelsFilePath)
@@ -1519,8 +1473,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' ContextMenuStrip2 - Opening
-    Private Sub ContextMenuStrip2_Opening(sender As Object, e As CancelEventArgs) Handles ContextMenuStrip_Channel.Opening
+    ' ContextMenuStrip_Channel - Opening
+    Private Sub ContextMenuStrip_Channel_Opening(sender As Object, e As CancelEventArgs) Handles ContextMenuStrip_Channel.Opening
         If ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(2).ForeColor = Color.Goldenrod Then
             AddRemoveFavoritesToolStripMenuItem.Text = "Remove from favorites"
         Else
@@ -1528,12 +1482,12 @@ Public Class Form_Main
         End If
     End Sub
 
-    ' ContextMenuStrip1 - Opening
-    Private Sub ContextMenuStrip1_Opening(sender As Object, e As CancelEventArgs) Handles ContextMenuStrip_MediaPlayer.Opening
+    ' ContextMenuStrip_MediaPlayer - Opening
+    Private Sub ContextMenuStrip_MediaPlayer_Opening(sender As Object, e As CancelEventArgs) Handles ContextMenuStrip_MediaPlayer.Opening
         If PopoutDesktopMode = True Then
-            NormalPopoutToggleModeToolStripMenuItem.Text = "Normal mode"
+            NormalPopoutToggleModeToolStripMenuItem2.Text = "Normal mode"
         Else
-            NormalPopoutToggleModeToolStripMenuItem.Text = "Popout mode"
+            NormalPopoutToggleModeToolStripMenuItem2.Text = "Popout mode"
         End If
     End Sub
 
@@ -1548,8 +1502,8 @@ Public Class Form_Main
         End If
     End Sub
 
-    'Exit - ToolStripMenuItem - Click
-    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+    'Exit - ToolStripMenuItem2 - Click
+    Private Sub ExitToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem2.Click
         Me.Close()
     End Sub
 
@@ -1571,7 +1525,7 @@ Public Class Form_Main
             End If
 
             ForceLayoutUpate(FlowDirection.LeftToRight)
-            End If
+        End If
     End Sub
 
     ' Vertical - ToolStripMenuItem - Click
@@ -1606,6 +1560,7 @@ Public Class Form_Main
         FlowLayoutPanel_Channels.Controls.Clear()
         FlowLayoutPanel_Channels.FlowDirection = newFlowDirection
         FlowLayoutPanel_Channels.Controls.AddRange(controls)
+        'FlowLayoutPanel_Channels.PerformLayout()
     End Sub
 
     'Right - ToolStripMenuItem - Click
@@ -1625,7 +1580,6 @@ Public Class Form_Main
             If FixedVerticalToolStripMenuItem.Checked Then
                 Panel_ChannelsList.Width = MinSizePanelChannels
             Else
-
                 If OriginalPanelHeight > MinSizePanelChannels Then
                     Panel_ChannelsList.Width = OriginalPanelHeight
                 Else
@@ -1662,42 +1616,128 @@ Public Class Form_Main
         End If
     End Sub
 
-    '
-    Private Sub TestToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        'Console.WriteLine(SplitContainer1.SplitterDistance)
-        'Console.WriteLine(MediaPlayer.network.frameRate.ToString)
-        Console.WriteLine(Panel_ChannelsList.Size)
-    End Sub
-
     ' PanelChannelsListVisiblityWorkAround
     Private Sub PanelChannelsListVisiblityWorkAround(Visiblity As Boolean)
         If Visiblity = True Then
-            Splitter1.Visible = True
-            Panel_ChannelsList.Size = OriginalPanelSize
+            If Not Splitter1.Visible = True Then
+                Splitter1.Visible = True
+                Panel_ChannelsList.Size = OriginalPanelSize
+            End If
         Else
-            OriginalPanelSize = Panel_ChannelsList.Size
-            Splitter1.Visible = False
+            If Not Splitter1.Visible = False Then
+                OriginalPanelSize = Panel_ChannelsList.Size
+                Splitter1.Visible = False
 
-
-            Dim targetControl As Control = FlowLayoutPanel_Channels.Controls.Item(currentChannel)
-
-            If Not targetControl.Visible Then
-                ' If the control is not visible, scroll it into view
-                FlowLayoutPanel_Channels.ScrollControlIntoView(targetControl)
-            Else
-                ' If the control is visible, check if it's within the visible area
-                Dim visibleRectangle As Rectangle = New Rectangle(FlowLayoutPanel_Channels.HorizontalScroll.Value, FlowLayoutPanel_Channels.VerticalScroll.Value, FlowLayoutPanel_Channels.ClientSize.Width, FlowLayoutPanel_Channels.ClientSize.Height)
-
-                If Not visibleRectangle.Contains(targetControl.Bounds) Then
+                Dim targetControl As Control = FlowLayoutPanel_Channels.Controls.Item(currentChannel)
+                If Not targetControl.Visible Then
+                    ' If the control is not visible, scroll it into view
                     FlowLayoutPanel_Channels.ScrollControlIntoView(targetControl)
+                Else
+                    ' If the control is visible, check if it's within the visible area
+                    Dim visibleRectangle As Rectangle = New Rectangle(FlowLayoutPanel_Channels.HorizontalScroll.Value, FlowLayoutPanel_Channels.VerticalScroll.Value, FlowLayoutPanel_Channels.ClientSize.Width, FlowLayoutPanel_Channels.ClientSize.Height)
+
+                    If Not visibleRectangle.Contains(targetControl.Bounds) Then
+                        FlowLayoutPanel_Channels.ScrollControlIntoView(targetControl)
+                    End If
+                End If
+
+                If Panel_ChannelsList.Dock = DockStyle.Right Then
+                    Panel_ChannelsList.Width = 0
+                Else
+                    Panel_ChannelsList.Height = 0
+                End If
+
+            End If
+        End If
+    End Sub
+
+    'IMDb - ToolStripMenuItem - Click
+    Private Sub IMDbToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IMDbToolStripMenuItem.Click
+
+        If MediaPlayer.playState = WMPPlayState.wmppsPlaying Then
+            Console.WriteLine(MediaPlayer.URL)
+
+            Dim IMDbID As String = ""
+            Dim Found As Boolean = False
+
+            If MediaPlayer.URL.StartsWith("https://archive.org/download/series.archive/") Then
+                IMDbID = MediaPlayer.URL
+                IMDbID = IMDbID.Replace("https://archive.org/download/series.archive/", "")
+                IMDbID = IMDbID.Substring(0, IMDbID.IndexOf("/"))
+                Found = True
+            ElseIf MediaPlayer.URL.StartsWith("https://archive.org/download/series.archive.v2/") Then
+                IMDbID = MediaPlayer.URL
+                IMDbID = IMDbID.Replace("https://archive.org/download/series.archive.v2/", "")
+                IMDbID = IMDbID.Substring(0, IMDbID.IndexOf("/"))
+                Found = True
+            ElseIf MediaPlayer.URL.StartsWith("https://archive.org/download/series.archive.v3/") Then
+                IMDbID = MediaPlayer.URL
+                IMDbID = IMDbID.Replace("https://archive.org/download/series.archive.v3/", "")
+                IMDbID = IMDbID.Substring(0, IMDbID.IndexOf("/"))
+                Found = True
+            ElseIf MediaPlayer.URL.StartsWith("https://archive.org/download/video.archive/") Then
+                IMDbID = MediaPlayer.URL
+                IMDbID = IMDbID.Replace("https://archive.org/download/video.archive/", "")
+                IMDbID = IMDbID.Substring(0, IMDbID.IndexOf("/"))
+                Found = True
+            ElseIf MediaPlayer.URL.StartsWith("https://archive.org/download/kino.archive/") Then
+                IMDbID = MediaPlayer.URL
+                IMDbID = IMDbID.Replace("https://archive.org/download/kino.archive/", "")
+                IMDbID = IMDbID.Substring(0, IMDbID.IndexOf("/"))
+                Found = True
+            End If
+
+            If Found = True Then
+                If IsNumeric(IMDbID) And Not IMDbID = "" Then
+                    Process.Start("https://www.imdb.com/title/tt" & IMDbID & "/")
+                End If
+            Else
+                If Not ToolStripStatusLabel_CurrentChannelName.Text = "Movie Channel 1" And Not ToolStripStatusLabel_CurrentChannelName.Text = "Kids Movies" Then
+                    Process.Start("https://www.imdb.com/find/?q=" & ToolStripStatusLabel_CurrentChannelName.Text)
+                Else
+                    Dim TempStr As String = MediaPlayer.currentMedia.name.ToString
+
+                    If TempStr.Contains(".720") Then
+                        TempStr = TempStr.Substring(0, TempStr.IndexOf(".720"))
+                    End If
+
+                    If TempStr.Contains(".1080") Then
+                        TempStr = TempStr.Substring(0, TempStr.IndexOf(".1080"))
+                    End If
+
+                    TempStr = TempStr.Replace(".", " ")
+
+                    Process.Start("https://www.imdb.com/find/?q=" & TempStr & "/")
                 End If
             End If
 
-            If Panel_ChannelsList.Dock = DockStyle.Right Then
-                Panel_ChannelsList.Width = 0
-            Else
-                Panel_ChannelsList.Height = 0
-            End If
         End If
+    End Sub
+
+    'IMDb - ToolStripMenuItem2 - Click
+    Private Sub IMDbToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles IMDbToolStripMenuItem2.Click
+        IMDbToolStripMenuItem.PerformClick()
+    End Sub
+
+    'CurrentMediaName - ToolStripMenuItem2 - Click
+    Private Sub CurrentMediaNameToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles CurrentMediaNameToolStripMenuItem2.Click
+        CurrentMediaNameToolStripMenuItem.PerformClick()
+    End Sub
+
+    'Statistics - ToolStripMenuItem2 - Click
+    Private Sub StatisticsToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles StatisticsToolStripMenuItem2.Click
+        StatisticsToolStripMenuItem.PerformClick()
+    End Sub
+
+    'ChannelContentList - ToolStripMenuItem2 - Click
+    Private Sub ChannelContentListToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ChannelContentListToolStripMenuItem2.Click
+        ChannelContentListToolStripMenuItem.PerformClick()
+    End Sub
+
+    'FlowLayoutPanel_Channels - Scroll
+    Private Sub FlowLayoutPanel_Channels_Scroll(sender As Object, e As ScrollEventArgs) Handles FlowLayoutPanel_Channels.Scroll
+        'FlowLayoutPanel_Channels.Refresh()
+        FlowLayoutPanel_Channels.Update()
+        'MediaPlayer.Refresh()
     End Sub
 End Class

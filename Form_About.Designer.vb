@@ -24,54 +24,54 @@ Partial Class Form_About
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_About))
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label_Version = New System.Windows.Forms.Label()
+        Me.Panel_Info = New System.Windows.Forms.Panel()
+        Me.PictureBox_ProjectIcon = New System.Windows.Forms.PictureBox()
+        Me.Label_ProjectVersion = New System.Windows.Forms.Label()
         Me.Label_WMPVersion = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label_ProjectTitle = New System.Windows.Forms.Label()
+        Me.PictureBox_GifBackground = New System.Windows.Forms.PictureBox()
+        Me.Panel_WindowTitleBar = New System.Windows.Forms.Panel()
         Me.Button_Close = New System.Windows.Forms.Button()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
+        Me.Timer_FadeIn = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel_Info.SuspendLayout()
+        CType(Me.PictureBox_ProjectIcon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox_GifBackground, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel_WindowTitleBar.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Panel1
+        'Panel_Info
         '
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.Label_Version)
-        Me.Panel1.Controls.Add(Me.Label_WMPVersion)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 34)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(300, 158)
-        Me.Panel1.TabIndex = 4
+        Me.Panel_Info.Controls.Add(Me.PictureBox_ProjectIcon)
+        Me.Panel_Info.Controls.Add(Me.Label_ProjectVersion)
+        Me.Panel_Info.Controls.Add(Me.Label_WMPVersion)
+        Me.Panel_Info.Controls.Add(Me.Label_ProjectTitle)
+        Me.Panel_Info.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Info.Location = New System.Drawing.Point(0, 34)
+        Me.Panel_Info.Name = "Panel_Info"
+        Me.Panel_Info.Size = New System.Drawing.Size(300, 158)
+        Me.Panel_Info.TabIndex = 4
         '
-        'PictureBox1
+        'PictureBox_ProjectIcon
         '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Image = Global.TimeFlowTV.My.Resources.Resources.TV0
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 42)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(300, 64)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.PictureBox_ProjectIcon.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox_ProjectIcon.Image = Global.TimeFlowTV.My.Resources.Resources.TV0
+        Me.PictureBox_ProjectIcon.Location = New System.Drawing.Point(0, 42)
+        Me.PictureBox_ProjectIcon.Name = "PictureBox_ProjectIcon"
+        Me.PictureBox_ProjectIcon.Size = New System.Drawing.Size(300, 64)
+        Me.PictureBox_ProjectIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox_ProjectIcon.TabIndex = 0
+        Me.PictureBox_ProjectIcon.TabStop = False
         '
-        'Label_Version
+        'Label_ProjectVersion
         '
-        Me.Label_Version.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Label_Version.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Version.Location = New System.Drawing.Point(0, 106)
-        Me.Label_Version.Name = "Label_Version"
-        Me.Label_Version.Size = New System.Drawing.Size(300, 26)
-        Me.Label_Version.TabIndex = 3
-        Me.Label_Version.Text = "v0.0.0.0"
-        Me.Label_Version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label_ProjectVersion.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label_ProjectVersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_ProjectVersion.Location = New System.Drawing.Point(0, 106)
+        Me.Label_ProjectVersion.Name = "Label_ProjectVersion"
+        Me.Label_ProjectVersion.Size = New System.Drawing.Size(300, 26)
+        Me.Label_ProjectVersion.TabIndex = 3
+        Me.Label_ProjectVersion.Text = "v0.0.0.0"
+        Me.Label_ProjectVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label_WMPVersion
         '
@@ -84,36 +84,36 @@ Partial Class Form_About
         Me.Label_WMPVersion.Text = "v0.0.0.0"
         Me.Label_WMPVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label1
+        'Label_ProjectTitle
         '
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(300, 42)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Time Flow TV"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label_ProjectTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label_ProjectTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_ProjectTitle.Location = New System.Drawing.Point(0, 0)
+        Me.Label_ProjectTitle.Name = "Label_ProjectTitle"
+        Me.Label_ProjectTitle.Size = New System.Drawing.Size(300, 42)
+        Me.Label_ProjectTitle.TabIndex = 2
+        Me.Label_ProjectTitle.Text = "Time Flow TV"
+        Me.Label_ProjectTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox2
+        'PictureBox_GifBackground
         '
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox2.Image = Global.TimeFlowTV.My.Resources.Resources.KY72
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 34)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(300, 450)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
+        Me.PictureBox_GifBackground.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox_GifBackground.Image = Global.TimeFlowTV.My.Resources.Resources.KY72
+        Me.PictureBox_GifBackground.Location = New System.Drawing.Point(0, 34)
+        Me.PictureBox_GifBackground.Name = "PictureBox_GifBackground"
+        Me.PictureBox_GifBackground.Size = New System.Drawing.Size(300, 450)
+        Me.PictureBox_GifBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox_GifBackground.TabIndex = 1
+        Me.PictureBox_GifBackground.TabStop = False
         '
-        'Panel2
+        'Panel_WindowTitleBar
         '
-        Me.Panel2.Controls.Add(Me.Button_Close)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(300, 34)
-        Me.Panel2.TabIndex = 6
+        Me.Panel_WindowTitleBar.Controls.Add(Me.Button_Close)
+        Me.Panel_WindowTitleBar.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_WindowTitleBar.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_WindowTitleBar.Name = "Panel_WindowTitleBar"
+        Me.Panel_WindowTitleBar.Size = New System.Drawing.Size(300, 34)
+        Me.Panel_WindowTitleBar.TabIndex = 6
         '
         'Button_Close
         '
@@ -133,43 +133,43 @@ Partial Class Form_About
         Me.Button_Close.Text = "✗"
         Me.Button_Close.UseVisualStyleBackColor = False
         '
-        'Timer1
+        'Timer_FadeIn
         '
         '
-        'About
+        'Form_About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(27, Byte), Integer), CType(CType(90, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(300, 484)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel_Info)
+        Me.Controls.Add(Me.PictureBox_GifBackground)
+        Me.Controls.Add(Me.Panel_WindowTitleBar)
         Me.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "About"
+        Me.Name = "Form_About"
         Me.Opacity = 0.8R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "About"
         Me.TopMost = True
-        Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
+        Me.Panel_Info.ResumeLayout(False)
+        CType(Me.PictureBox_ProjectIcon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox_GifBackground, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel_WindowTitleBar.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label_Version As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents PictureBox_ProjectIcon As PictureBox
+    Friend WithEvents PictureBox_GifBackground As PictureBox
+    Friend WithEvents Panel_Info As Panel
+    Friend WithEvents Label_ProjectVersion As Label
+    Friend WithEvents Label_ProjectTitle As Label
+    Friend WithEvents Panel_WindowTitleBar As Panel
     Friend WithEvents Button_Close As Button
     Friend WithEvents Label_WMPVersion As Label
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Timer_FadeIn As Timer
 End Class
