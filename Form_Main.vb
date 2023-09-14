@@ -4,6 +4,7 @@ Imports System.Drawing
 Imports System.Runtime.Hosting
 Imports System.Threading
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Tab
 Imports Microsoft.VisualBasic.Devices
 
 Public Class Form_Main
@@ -34,6 +35,9 @@ Public Class Form_Main
     Private FavoriteChannelsFilePath As String = Application.StartupPath & "\Favorite Channels.cfg"
     Private OriginalPanelSize As New Size
 
+    Dim StopWatchTest As New Stopwatch
+
+    ReadOnly MovieChannelIMDbExptions() As String = {"Marvel Cinematic Universe", "Kids Movies", "Pokémon Movies", "Movie Channel 6", "Movie Channel 7", "Movie Channel 8", "Movie Channel 9", "Movie Channel 10", "Movie Channel 11", "Movie Channel 12", "Movie Channel 13"}
     ' MainForm - Load
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ContextMenuStrip_MediaPlayer.Renderer = New ToolStripProfessionalRenderer(New ColorTable())
@@ -182,6 +186,14 @@ Public Class Form_Main
             PictureBox_Media.Visible = False
         End If
 
+        If MediaPlayer.playState = WMPPlayState.wmppsPlaying Then
+            ' StopWatchTest.Stop()
+            'Console.WriteLine(StopWatchTest.ElapsedMilliseconds)
+        End If
+
+        If MediaPlayer.playState = WMPPlayState.wmppsTransitioning Then
+            ' StopWatchTest.Restart()
+        End If
     End Sub
 
     ' MediaPlayer - MediaError
@@ -659,8 +671,8 @@ Public Class Form_Main
 
 
         FlowLayoutPanel_Channels.Visible = True
-        FlowLayoutPanel_Channels.ResumeLayout(True)
-        FlowLayoutPanel_Channels.PerformLayout()
+        FlowLayoutPanel_Channels.ResumeLayout(False)
+        'FlowLayoutPanel_Channels.PerformLayout()
 
         'FlowLayoutPanel_Channels.Refresh()
 
@@ -1406,8 +1418,9 @@ Public Class Form_Main
                 For i = 0 To FlowLayoutPanel_Channels.Controls.Count - 1
                     FlowLayoutPanel_Channels.Controls.Item(i).Show()
                 Next
-                FlowLayoutPanel_Channels.ResumeLayout()
                 FlowLayoutPanel_Channels.Visible = True
+                FlowLayoutPanel_Channels.ResumeLayout(True)
+                FlowLayoutPanelWorkaround()
 
             Else
                 If FavoritesChannelsList.Count > 0 Then
@@ -1430,8 +1443,10 @@ Public Class Form_Main
                             End If
                         End If
                     Next
-                    FlowLayoutPanel_Channels.ResumeLayout()
                     FlowLayoutPanel_Channels.Visible = True
+                    FlowLayoutPanel_Channels.ResumeLayout(True)
+                    FlowLayoutPanelWorkaround()
+
                 End If
             End If
         End If
@@ -1560,7 +1575,7 @@ Public Class Form_Main
         FlowLayoutPanel_Channels.Controls.Clear()
         FlowLayoutPanel_Channels.FlowDirection = newFlowDirection
         FlowLayoutPanel_Channels.Controls.AddRange(controls)
-        'FlowLayoutPanel_Channels.PerformLayout()
+        FlowLayoutPanelWorkaround()
     End Sub
 
     'Right - ToolStripMenuItem - Click
@@ -1692,7 +1707,7 @@ Public Class Form_Main
                     Process.Start("https://www.imdb.com/title/tt" & IMDbID & "/")
                 End If
             Else
-                If Not ToolStripStatusLabel_CurrentChannelName.Text = "Movie Channel 1" And Not ToolStripStatusLabel_CurrentChannelName.Text = "Kids Movies" Then
+                If Not MovieChannelIMDbExptions.Contains(ToolStripStatusLabel_CurrentChannelName.Text) Then
                     Process.Start("https://www.imdb.com/find/?q=" & ToolStripStatusLabel_CurrentChannelName.Text)
                 Else
                     Dim TempStr As String = MediaPlayer.currentMedia.name.ToString
@@ -1736,8 +1751,49 @@ Public Class Form_Main
 
     'FlowLayoutPanel_Channels - Scroll
     Private Sub FlowLayoutPanel_Channels_Scroll(sender As Object, e As ScrollEventArgs) Handles FlowLayoutPanel_Channels.Scroll
-        'FlowLayoutPanel_Channels.Refresh()
         FlowLayoutPanel_Channels.Update()
-        'MediaPlayer.Refresh()
+    End Sub
+
+    'Workaround For FlowLayoutPanel on start up
+    Protected Overrides Sub OnShown(e As EventArgs)
+        MyBase.OnShown(e)
+        FlowLayoutPanelWorkaround()
+    End Sub
+
+    'FlowLayoutPanelWorkaround
+    Private Sub FlowLayoutPanelWorkaround()
+        If Panel_ChannelsList.Dock = DockStyle.Right Then
+            FlowLayoutPanel_Channels.AutoScrollPosition = New Point(0, FlowLayoutPanel_Channels.VerticalScroll.Maximum - FlowLayoutPanel_Channels.VerticalScroll.LargeChange)
+        Else
+            FlowLayoutPanel_Channels.AutoScrollPosition = New Point(FlowLayoutPanel_Channels.HorizontalScroll.Maximum - FlowLayoutPanel_Channels.HorizontalScroll.LargeChange, 0)
+        End If
+
+        FlowLayoutPanel_Channels.PerformLayout()
+        FlowLayoutPanel_Channels.AutoScrollPosition = Point.Empty
+    End Sub
+
+    ' MediaPlayer - OpenStateChange
+    Private Sub MediaPlayer_OpenStateChange(sender As Object, e As _WMPOCXEvents_OpenStateChangeEvent) Handles MediaPlayer.OpenStateChange
+        If e.newState = WMPOpenState.wmposOpeningUnknownURL Then
+            StopWatchTest.Restart()
+        ElseIf e.newState = WMPOpenState.wmposMediaOpen Then
+            StopWatchTest.Stop()
+            If AutoResyncToolStripMenuItem.Checked Then 'And ContentListModeShuffledToolStripMenuItem.Checked Then
+                If Not StopWatchTest.ElapsedMilliseconds = 0 Then
+                    MediaPlayer.Ctlcontrols.currentPosition += StopWatchTest.ElapsedMilliseconds / 1000
+                End If
+                StopWatchTest.Reset()
+            End If
+        Else
+            StopWatchTest.Stop()
+        End If
+    End Sub
+
+    ' Resync - ToolStripMenuItem1 - Click
+    Private Sub ResyncToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ResyncToolStripMenuItem1.Click
+        If Not StopWatchTest.ElapsedMilliseconds = 0 Then
+            MediaPlayer.Ctlcontrols.currentPosition += StopWatchTest.ElapsedMilliseconds / 1000
+            StopWatchTest.Reset()
+        End If
     End Sub
 End Class

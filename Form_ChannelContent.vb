@@ -24,4 +24,11 @@ Public Class Form_ChannelContent
     Private Sub ContentListModeShuffledToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContentListModeShuffledToolStripMenuItem.Click
         Form_Main.ContentListModeShuffledToolStripMenuItem.PerformClick()
     End Sub
+
+    ' Download - ToolStripMenuItem_Download - Click
+    Private Sub DownloadToolStripMenuItem_Download_Click(sender As Object, e As EventArgs) Handles DownloadToolStripMenuItem_Download.Click
+        If ListBox_ChannelContent.SelectedIndex > -1 Then
+            Process.Start("https://archive.org/download/" & ListBox_ChannelContent.SelectedItem.ToString)
+        End If
+    End Sub
 End Class

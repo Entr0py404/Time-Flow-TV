@@ -31,6 +31,7 @@ Partial Class Form_ChannelContent
         Me.ContentListModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentListModeSortedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentListModeShuffledToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DownloadToolStripMenuItem_Download = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -93,7 +94,7 @@ Partial Class Form_ChannelContent
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentListModeToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentListModeToolStripMenuItem, Me.DownloadToolStripMenuItem_Download})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(785, 29)
@@ -113,7 +114,7 @@ Partial Class Form_ChannelContent
         Me.ContentListModeSortedToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.ContentListModeSortedToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeSortedToolStripMenuItem.Name = "ContentListModeSortedToolStripMenuItem"
-        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
+        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.ContentListModeSortedToolStripMenuItem.Text = "Sorted"
         '
         'ContentListModeShuffledToolStripMenuItem
@@ -123,8 +124,15 @@ Partial Class Form_ChannelContent
         Me.ContentListModeShuffledToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ContentListModeShuffledToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeShuffledToolStripMenuItem.Name = "ContentListModeShuffledToolStripMenuItem"
-        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
+        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.ContentListModeShuffledToolStripMenuItem.Text = "Shuffled"
+        '
+        'DownloadToolStripMenuItem_Download
+        '
+        Me.DownloadToolStripMenuItem_Download.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.DownloadToolStripMenuItem_Download.Name = "DownloadToolStripMenuItem_Download"
+        Me.DownloadToolStripMenuItem_Download.Size = New System.Drawing.Size(111, 25)
+        Me.DownloadToolStripMenuItem_Download.Text = "🡇 Download"
         '
         'Form_ChannelContent
         '
@@ -157,4 +165,5 @@ Partial Class Form_ChannelContent
     Friend WithEvents ContentListModeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContentListModeSortedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContentListModeShuffledToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DownloadToolStripMenuItem_Download As ToolStripMenuItem
 End Class

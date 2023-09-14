@@ -63,6 +63,9 @@ Partial Class Form_Main
         Me.ResizeToMediaAspectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MediaAspectAutoInPopoutModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MediaAspectAutoInNormalModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResyncToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AutoResyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelsListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelContentListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -355,7 +358,7 @@ Partial Class Form_Main
         '
         'SettingsToolStripMenuItem
         '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoCloseChannelsListToolStripMenuItem, Me.AlwaysOnTopToolStripMenuItem, Me.StretchToFitToolStripMenuItem, Me.ShowPlayerControlsToolStripMenuItem, Me.ResizeToToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoCloseChannelsListToolStripMenuItem, Me.AlwaysOnTopToolStripMenuItem, Me.StretchToFitToolStripMenuItem, Me.ShowPlayerControlsToolStripMenuItem, Me.ResizeToToolStripMenuItem, Me.ResyncToolStripMenuItem})
         Me.SettingsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
@@ -440,6 +443,32 @@ Partial Class Form_Main
         Me.MediaAspectAutoInNormalModeToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
         Me.MediaAspectAutoInNormalModeToolStripMenuItem.Text = "Media aspect auto ( in normal )"
         '
+        'ResyncToolStripMenuItem
+        '
+        Me.ResyncToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ResyncToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResyncToolStripMenuItem1, Me.AutoResyncToolStripMenuItem})
+        Me.ResyncToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ResyncToolStripMenuItem.Name = "ResyncToolStripMenuItem"
+        Me.ResyncToolStripMenuItem.Size = New System.Drawing.Size(232, 24)
+        Me.ResyncToolStripMenuItem.Text = "Resync"
+        '
+        'ResyncToolStripMenuItem1
+        '
+        Me.ResyncToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.ResyncToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ResyncToolStripMenuItem1.Name = "ResyncToolStripMenuItem1"
+        Me.ResyncToolStripMenuItem1.Size = New System.Drawing.Size(180, 24)
+        Me.ResyncToolStripMenuItem1.Text = "Resync"
+        '
+        'AutoResyncToolStripMenuItem
+        '
+        Me.AutoResyncToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.AutoResyncToolStripMenuItem.CheckOnClick = True
+        Me.AutoResyncToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.AutoResyncToolStripMenuItem.Name = "AutoResyncToolStripMenuItem"
+        Me.AutoResyncToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.AutoResyncToolStripMenuItem.Text = "Auto resync"
+        '
         'ChannelsToolStripMenuItem
         '
         Me.ChannelsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChannelsListToolStripMenuItem, Me.ChannelContentListToolStripMenuItem, Me.ContentListModeToolStripMenuItem})
@@ -478,7 +507,7 @@ Partial Class Form_Main
         Me.ContentListModeSortedToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.ContentListModeSortedToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeSortedToolStripMenuItem.Name = "ContentListModeSortedToolStripMenuItem"
-        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(133, 24)
+        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
         Me.ContentListModeSortedToolStripMenuItem.Text = "Sorted"
         '
         'ContentListModeShuffledToolStripMenuItem
@@ -488,7 +517,7 @@ Partial Class Form_Main
         Me.ContentListModeShuffledToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ContentListModeShuffledToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeShuffledToolStripMenuItem.Name = "ContentListModeShuffledToolStripMenuItem"
-        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(133, 24)
+        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
         Me.ContentListModeShuffledToolStripMenuItem.Text = "Shuffled"
         '
         'PopoutModeToolStripMenuItem
@@ -1073,4 +1102,7 @@ Partial Class Form_Main
     Friend WithEvents ToolStripMenuItem5 As ToolStripSeparator
     Friend WithEvents Opacity100ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents MediaAspectAutoInPopoutModeToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ResyncToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResyncToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AutoResyncToolStripMenuItem As ToolStripMenuItem
 End Class
