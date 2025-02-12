@@ -30,6 +30,7 @@ Partial Class Form_Main
         Me.ChannelsListToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelContentListToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.VolumeToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlwaysOnTopToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StretchToFitToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,6 +67,7 @@ Partial Class Form_Main
         Me.ResyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResyncToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AutoResyncToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VolumeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelsListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChannelContentListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -122,6 +124,7 @@ Partial Class Form_Main
         Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.PictureBox_Media = New System.Windows.Forms.PictureBox()
         Me.MediaPlayer = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.TrackBar_Volume = New System.Windows.Forms.TrackBar()
         Me.ContextMenuStrip_MediaPlayer.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip_PlayerStatus.SuspendLayout()
@@ -132,17 +135,18 @@ Partial Class Form_Main
         Me.ContextMenuStrip_Channel.SuspendLayout()
         CType(Me.PictureBox_Media, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar_Volume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip_MediaPlayer
         '
         Me.ContextMenuStrip_MediaPlayer.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.ContextMenuStrip_MediaPlayer.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuStrip_MediaPlayer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator2, Me.NormalPopoutToggleModeToolStripMenuItem2, Me.ChannelsListToolStripMenuItem2, Me.ChannelContentListToolStripMenuItem2, Me.ToolStripSeparator5, Me.SettingsToolStripMenuItem2, Me.ToolStripSeparator4, Me.ResizeToMediaAspectToolStripMenuItem2, Me.ResizeToMediaSourceToolStripMenuItem2, Me.ResizeToolStripMenuItem2, Me.ToolStripSeparator6, Me.InfoToolStripMenuItem2, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem2})
+        Me.ContextMenuStrip_MediaPlayer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator2, Me.NormalPopoutToggleModeToolStripMenuItem2, Me.ChannelsListToolStripMenuItem2, Me.ChannelContentListToolStripMenuItem2, Me.ToolStripSeparator5, Me.VolumeToolStripMenuItem2, Me.SettingsToolStripMenuItem2, Me.ToolStripSeparator4, Me.ResizeToMediaAspectToolStripMenuItem2, Me.ResizeToMediaSourceToolStripMenuItem2, Me.ResizeToolStripMenuItem2, Me.ToolStripSeparator6, Me.InfoToolStripMenuItem2, Me.ToolStripSeparator1, Me.ExitToolStripMenuItem2})
         Me.ContextMenuStrip_MediaPlayer.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip_MediaPlayer.ShowCheckMargin = True
         Me.ContextMenuStrip_MediaPlayer.ShowImageMargin = False
-        Me.ContextMenuStrip_MediaPlayer.Size = New System.Drawing.Size(232, 260)
+        Me.ContextMenuStrip_MediaPlayer.Size = New System.Drawing.Size(232, 284)
         '
         'ToolStripSeparator2
         '
@@ -175,6 +179,14 @@ Partial Class Form_Main
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(228, 6)
+        '
+        'VolumeToolStripMenuItem2
+        '
+        Me.VolumeToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.VolumeToolStripMenuItem2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.VolumeToolStripMenuItem2.Name = "VolumeToolStripMenuItem2"
+        Me.VolumeToolStripMenuItem2.Size = New System.Drawing.Size(231, 24)
+        Me.VolumeToolStripMenuItem2.Text = "Volume"
         '
         'SettingsToolStripMenuItem2
         '
@@ -358,7 +370,7 @@ Partial Class Form_Main
         '
         'SettingsToolStripMenuItem
         '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoCloseChannelsListToolStripMenuItem, Me.AlwaysOnTopToolStripMenuItem, Me.StretchToFitToolStripMenuItem, Me.ShowPlayerControlsToolStripMenuItem, Me.ResizeToToolStripMenuItem, Me.ResyncToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoCloseChannelsListToolStripMenuItem, Me.AlwaysOnTopToolStripMenuItem, Me.StretchToFitToolStripMenuItem, Me.ShowPlayerControlsToolStripMenuItem, Me.ResizeToToolStripMenuItem, Me.ResyncToolStripMenuItem, Me.VolumeToolStripMenuItem})
         Me.SettingsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
@@ -457,7 +469,7 @@ Partial Class Form_Main
         Me.ResyncToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.ResyncToolStripMenuItem1.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ResyncToolStripMenuItem1.Name = "ResyncToolStripMenuItem1"
-        Me.ResyncToolStripMenuItem1.Size = New System.Drawing.Size(180, 24)
+        Me.ResyncToolStripMenuItem1.Size = New System.Drawing.Size(155, 24)
         Me.ResyncToolStripMenuItem1.Text = "Resync"
         '
         'AutoResyncToolStripMenuItem
@@ -466,8 +478,16 @@ Partial Class Form_Main
         Me.AutoResyncToolStripMenuItem.CheckOnClick = True
         Me.AutoResyncToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.AutoResyncToolStripMenuItem.Name = "AutoResyncToolStripMenuItem"
-        Me.AutoResyncToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.AutoResyncToolStripMenuItem.Size = New System.Drawing.Size(155, 24)
         Me.AutoResyncToolStripMenuItem.Text = "Auto resync"
+        '
+        'VolumeToolStripMenuItem
+        '
+        Me.VolumeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.VolumeToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.VolumeToolStripMenuItem.Name = "VolumeToolStripMenuItem"
+        Me.VolumeToolStripMenuItem.Size = New System.Drawing.Size(232, 24)
+        Me.VolumeToolStripMenuItem.Text = "Volume"
         '
         'ChannelsToolStripMenuItem
         '
@@ -507,7 +527,7 @@ Partial Class Form_Main
         Me.ContentListModeSortedToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.ContentListModeSortedToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeSortedToolStripMenuItem.Name = "ContentListModeSortedToolStripMenuItem"
-        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.ContentListModeSortedToolStripMenuItem.Size = New System.Drawing.Size(133, 24)
         Me.ContentListModeSortedToolStripMenuItem.Text = "Sorted"
         '
         'ContentListModeShuffledToolStripMenuItem
@@ -517,7 +537,7 @@ Partial Class Form_Main
         Me.ContentListModeShuffledToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ContentListModeShuffledToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ContentListModeShuffledToolStripMenuItem.Name = "ContentListModeShuffledToolStripMenuItem"
-        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.ContentListModeShuffledToolStripMenuItem.Size = New System.Drawing.Size(133, 24)
         Me.ContentListModeShuffledToolStripMenuItem.Text = "Shuffled"
         '
         'PopoutModeToolStripMenuItem
@@ -578,13 +598,13 @@ Partial Class Form_Main
         'StatusStrip_PlayerStatus
         '
         Me.StatusStrip_PlayerStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.StatusStrip_PlayerStatus.GripMargin = New System.Windows.Forms.Padding(0)
         Me.StatusStrip_PlayerStatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel_CurrentChannelNumber, Me.ToolStripStatusLabel_CurrentChannelName, Me.ToolStripStatusLabel_PlayerStatus})
         Me.StatusStrip_PlayerStatus.Location = New System.Drawing.Point(0, 659)
         Me.StatusStrip_PlayerStatus.Name = "StatusStrip_PlayerStatus"
         Me.StatusStrip_PlayerStatus.Size = New System.Drawing.Size(866, 22)
         Me.StatusStrip_PlayerStatus.SizingGrip = False
         Me.StatusStrip_PlayerStatus.TabIndex = 3
-        Me.StatusStrip_PlayerStatus.Text = "StatusStrip1"
         '
         'ToolStripStatusLabel_CurrentChannelNumber
         '
@@ -969,12 +989,27 @@ Partial Class Form_Main
         Me.MediaPlayer.TabIndex = 40
         Me.MediaPlayer.TabStop = False
         '
+        'TrackBar_Volume
+        '
+        Me.TrackBar_Volume.AutoSize = False
+        Me.TrackBar_Volume.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.TrackBar_Volume.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TrackBar_Volume.Location = New System.Drawing.Point(0, 28)
+        Me.TrackBar_Volume.Maximum = 100
+        Me.TrackBar_Volume.Name = "TrackBar_Volume"
+        Me.TrackBar_Volume.Orientation = System.Windows.Forms.Orientation.Vertical
+        Me.TrackBar_Volume.Size = New System.Drawing.Size(24, 631)
+        Me.TrackBar_Volume.TabIndex = 44
+        Me.TrackBar_Volume.TickStyle = System.Windows.Forms.TickStyle.None
+        Me.TrackBar_Volume.Visible = False
+        '
         'Form_Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(62, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.Controls.Add(Me.TrackBar_Volume)
         Me.Controls.Add(Me.Splitter1)
         Me.Controls.Add(Me.PictureBox_Media)
         Me.Controls.Add(Me.MediaPlayer)
@@ -988,6 +1023,7 @@ Partial Class Form_Main
         Me.Opacity = 0R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Time Flow TV"
+        Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.ContextMenuStrip_MediaPlayer.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -1003,6 +1039,7 @@ Partial Class Form_Main
         Me.ContextMenuStrip_Channel.ResumeLayout(False)
         CType(Me.PictureBox_Media, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MediaPlayer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar_Volume, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1105,4 +1142,7 @@ Partial Class Form_Main
     Friend WithEvents ResyncToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResyncToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents AutoResyncToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TrackBar_Volume As TrackBar
+    Friend WithEvents VolumeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VolumeToolStripMenuItem2 As ToolStripMenuItem
 End Class

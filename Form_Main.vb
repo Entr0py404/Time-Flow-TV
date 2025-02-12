@@ -1,11 +1,4 @@
-﻿'Imports System.Runtime.InteropServices
-Imports System.ComponentModel
-Imports System.Drawing
-Imports System.Runtime.Hosting
-Imports System.Threading
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Tab
-Imports Microsoft.VisualBasic.Devices
+﻿Imports System.ComponentModel
 
 Public Class Form_Main
     Private CurrentChannel_videoFiles As String()
@@ -37,7 +30,7 @@ Public Class Form_Main
 
     Dim StopWatchTest As New Stopwatch
 
-    ReadOnly MovieChannelIMDbExptions() As String = {"Marvel Cinematic Universe", "Kids Movies", "Pokémon Movies", "Movie Channel 6", "Movie Channel 7", "Movie Channel 8", "Movie Channel 9", "Movie Channel 10", "Movie Channel 11", "Movie Channel 12", "Movie Channel 13"}
+    ReadOnly MovieChannelIMDbExptions() As String = {"Pokémon Movies", "Movie Channel 1", "Movie Channel 2", "Movie Channel 3"}
     ' MainForm - Load
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ContextMenuStrip_MediaPlayer.Renderer = New ToolStripProfessionalRenderer(New ColorTable())
@@ -74,6 +67,8 @@ Public Class Form_Main
         MediaPlayer.Ctlenabled = True
         MediaPlayer.settings.autoStart = True
         MediaPlayer.settings.volume = 100
+        TrackBar_Volume.Value = MediaPlayer.settings.volume
+
 
         If MediaPlayer.stretchToFit Then
             StretchToFitToolStripMenuItem.Checked = True
@@ -194,6 +189,8 @@ Public Class Form_Main
         If MediaPlayer.playState = WMPPlayState.wmppsTransitioning Then
             ' StopWatchTest.Restart()
         End If
+
+        'Console.WriteLine(e.newState.ToString)
     End Sub
 
     ' MediaPlayer - MediaError
@@ -207,8 +204,20 @@ Public Class Form_Main
         ' Stop the current video (if any) and load and play the new video.
         MediaPlayer.Ctlcontrols.stop()
 
+        ' Find the last slash in the URL
+        Dim lastSlashIndex As Integer = videoFile.LastIndexOf("/"c)
+
+        ' Separate the base URL and the filename
+        Dim baseUrl As String = videoFile.Substring(0, lastSlashIndex + 1)
+        Dim filename As String = videoFile.Substring(lastSlashIndex + 1)
+
+        ' URL encode using Uri.EscapeDataString()
+        Dim encodedFilename As String = Uri.EscapeDataString(filename)
+
+        ' Reconstruct the full URL
+        Dim encodedUrl As String = baseUrl & encodedFilename
         ' Load the new video.
-        MediaPlayer.URL = videoFile
+        MediaPlayer.URL = encodedUrl
 
         ' Seek to the specified playback position.
         If playbackPosition > 0 Then
@@ -442,6 +451,9 @@ Public Class Form_Main
             ResizeToMedia()
         ElseIf PressedKey = Keys.F1 Then
             HotkeysToolStripMenuItem.PerformClick()
+        ElseIf PressedKey = Keys.V Then
+            MediaPlayer.settings.volume = TrackBar_Volume.Value
+            TrackBar_Volume.Visible = True
         End If
     End Sub
 
@@ -461,9 +473,11 @@ Public Class Form_Main
 
             Form_ChannelContent.Label2.Text = MediaPlayer.currentMedia.name.ToString()
 
+            'If ContentListModeShuffledToolStripMenuItem.Checked Then
             If Not currentIndex > Form_ChannelContent.ListBox_ChannelContent.Items.Count - 1 Then
                 Form_ChannelContent.ListBox_ChannelContent.SelectedIndex = currentIndex
             End If
+            'End If
         End If
     End Sub
 
@@ -819,12 +833,15 @@ Public Class Form_Main
         End If
 
         Dim CR As Rectangle = RectangleToScreen(Me.ClientRectangle)
-        Dim TitlebarHeight As Integer = CR.Top - Me.Top - 4
+        Dim TitlebarHeight As Integer = CR.Top - Me.Top
         If MenuStrip1.Visible Then
             Me.Size = New Size(newWidth, newHeight + MenuStrip1.Height + StatusStrip_PlayerStatus.Height + TitlebarHeight)
         Else
             Me.Size = New Size(newWidth, newHeight)
         End If
+
+        'Console.WriteLine(newWidth)
+        'Console.WriteLine(newHeight)
     End Sub
 
     ' ResizeChannels
@@ -889,6 +906,7 @@ Public Class Form_Main
         Me.ControlBox = False
         MenuStrip1.Hide()
         StatusStrip_PlayerStatus.Hide()
+        'Me.Cursor = Cursors.NoMove2D
 
         MediaPlayer.uiMode = "none"
         Me.FormBorderStyle = FormBorderStyle.None
@@ -912,6 +930,7 @@ Public Class Form_Main
         Me.ControlBox = True
         MenuStrip1.Show()
         StatusStrip_PlayerStatus.Show()
+        'Me.Cursor = Cursors.Default
 
         If ShowPlayerControlsToolStripMenuItem.Checked = True Then
             MediaPlayer.uiMode = "full"
@@ -931,7 +950,7 @@ Public Class Form_Main
         PopoutDesktopMode = False
     End Sub
 
-    'Timer_OpeningFade - Tick
+    ' Timer_OpeningFade - Tick
     Private Sub Timer_OpeningFade_Tick(sender As Object, e As EventArgs) Handles Timer_OpeningFade.Tick
         If currentOpacity < targetOpacity Then
             currentOpacity += 0.1 ' Adjust this value for smoother/faster fade
@@ -1098,7 +1117,7 @@ Public Class Form_Main
         ResizeToMediaAspectToolStripMenuItem.PerformClick()
     End Sub
 
-    'MediaAspectAutoInPopoutMode - ToolStripMenuItem - Click
+    ' MediaAspectAutoInPopoutMode - ToolStripMenuItem - Click
     Private Sub MediaAspectAutoInPopoutModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MediaAspectAutoInPopoutModeToolStripMenuItem.Click
         If MediaAspectAutoInPopoutModeToolStripMenuItem.Checked Then
             MediaAspectAutoInPopoutModeToolStripMenuItem2.Checked = True
@@ -1298,8 +1317,7 @@ Public Class Form_Main
 
     ' Hotkeys - ToolStripMenuItem - Click
     Private Sub HotkeysToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HotkeysToolStripMenuItem.Click
-        MsgBox("Hotkeys:" & vbNewLine & vbNewLine _
-           & "Controls." & vbNewLine _
+        MsgBox("Controls." & vbNewLine _
            & "C - Channels" & vbNewLine _
            & "P - Popout mode" & vbNewLine _
            & "R - Resize" & vbNewLine _
@@ -1313,7 +1331,7 @@ Public Class Form_Main
            & "F1 - Hotkeys list" & vbNewLine _
            & "F2 - Channel content duration total" & vbNewLine _
            & "I - Current media name" & vbNewLine _
-           , MsgBoxStyle.Information)
+           , MsgBoxStyle.Information, "Hotkeys")
     End Sub
 
     'SubOpacity - ToolStripMenuItem2 - Click
@@ -1452,7 +1470,7 @@ Public Class Form_Main
         End If
     End Sub
 
-    'AddRemoveFavorites - ToolStripMenuItem - Click
+    ' AddRemoveFavorites - ToolStripMenuItem - Click
     Private Sub AddRemoveFavoritesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddRemoveFavoritesToolStripMenuItem.Click
         If ContextMenuStrip_Channel.SourceControl.Parent.Controls.Item(2).ForeColor = Color.Goldenrod Then
 
@@ -1511,13 +1529,13 @@ Public Class Form_Main
         If Not Form_Statistics.Visible Then
             Form_Statistics.Show()
             Form_Statistics.BringToFront()
-            UpdateURLsList()
+            'UpdateURLsList()
         Else
             Form_Statistics.BringToFront()
         End If
     End Sub
 
-    'Exit - ToolStripMenuItem2 - Click
+    ' Exit - ToolStripMenuItem2 - Click
     Private Sub ExitToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem2.Click
         Me.Close()
     End Sub
@@ -1578,7 +1596,7 @@ Public Class Form_Main
         FlowLayoutPanelWorkaround()
     End Sub
 
-    'Right - ToolStripMenuItem - Click
+    ' Right - ToolStripMenuItem - Click
     Private Sub RightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RightToolStripMenuItem.Click
         If RightToolStripMenuItem.Checked = False Then
             Dim OriginalPanelHeight As Integer = Panel_ChannelsList.Height
@@ -1666,7 +1684,7 @@ Public Class Form_Main
         End If
     End Sub
 
-    'IMDb - ToolStripMenuItem - Click
+    ' IMDb - ToolStripMenuItem - Click
     Private Sub IMDbToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IMDbToolStripMenuItem.Click
 
         If MediaPlayer.playState = WMPPlayState.wmppsPlaying Then
@@ -1729,38 +1747,38 @@ Public Class Form_Main
         End If
     End Sub
 
-    'IMDb - ToolStripMenuItem2 - Click
+    ' IMDb - ToolStripMenuItem2 - Click
     Private Sub IMDbToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles IMDbToolStripMenuItem2.Click
         IMDbToolStripMenuItem.PerformClick()
     End Sub
 
-    'CurrentMediaName - ToolStripMenuItem2 - Click
+    ' CurrentMediaName - ToolStripMenuItem2 - Click
     Private Sub CurrentMediaNameToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles CurrentMediaNameToolStripMenuItem2.Click
         CurrentMediaNameToolStripMenuItem.PerformClick()
     End Sub
 
-    'Statistics - ToolStripMenuItem2 - Click
+    ' Statistics - ToolStripMenuItem2 - Click
     Private Sub StatisticsToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles StatisticsToolStripMenuItem2.Click
         StatisticsToolStripMenuItem.PerformClick()
     End Sub
 
-    'ChannelContentList - ToolStripMenuItem2 - Click
+    ' ChannelContentList - ToolStripMenuItem2 - Click
     Private Sub ChannelContentListToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ChannelContentListToolStripMenuItem2.Click
         ChannelContentListToolStripMenuItem.PerformClick()
     End Sub
 
-    'FlowLayoutPanel_Channels - Scroll
+    ' FlowLayoutPanel_Channels - Scroll
     Private Sub FlowLayoutPanel_Channels_Scroll(sender As Object, e As ScrollEventArgs) Handles FlowLayoutPanel_Channels.Scroll
         FlowLayoutPanel_Channels.Update()
     End Sub
 
-    'Workaround For FlowLayoutPanel on start up
+    ' Workaround For FlowLayoutPanel on start up
     Protected Overrides Sub OnShown(e As EventArgs)
         MyBase.OnShown(e)
         FlowLayoutPanelWorkaround()
     End Sub
 
-    'FlowLayoutPanelWorkaround
+    ' FlowLayoutPanelWorkaround
     Private Sub FlowLayoutPanelWorkaround()
         If Panel_ChannelsList.Dock = DockStyle.Right Then
             FlowLayoutPanel_Channels.AutoScrollPosition = New Point(0, FlowLayoutPanel_Channels.VerticalScroll.Maximum - FlowLayoutPanel_Channels.VerticalScroll.LargeChange)
@@ -1795,5 +1813,32 @@ Public Class Form_Main
             MediaPlayer.Ctlcontrols.currentPosition += StopWatchTest.ElapsedMilliseconds / 1000
             StopWatchTest.Reset()
         End If
+    End Sub
+
+    Private Sub MediaPlayer_ErrorEvent(sender As Object, e As EventArgs) Handles MediaPlayer.ErrorEvent
+        Console.WriteLine("Error: " & MediaPlayer.Error.ToString)
+    End Sub
+
+    ' TrackBar_Volume - Scroll
+    Private Sub TrackBar_Volume_Scroll(sender As Object, e As EventArgs) Handles TrackBar_Volume.Scroll
+        MediaPlayer.settings.volume = TrackBar_Volume.Value
+        Console.WriteLine(MediaPlayer.settings.volume)
+    End Sub
+
+    ' TrackBar_Volume - MouseLeave
+    Private Sub TrackBar_Volume_MouseLeave(sender As Object, e As EventArgs) Handles TrackBar_Volume.MouseLeave
+        TrackBar_Volume.Visible = False
+    End Sub
+
+    ' VolumeToolStripMenuItem - Click
+    Private Sub VolumeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VolumeToolStripMenuItem.Click
+        MediaPlayer.settings.volume = TrackBar_Volume.Value
+        TrackBar_Volume.Visible = True
+    End Sub
+
+    ' VolumeToolStripMenuItem2 - Click
+    Private Sub VolumeToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles VolumeToolStripMenuItem2.Click
+        MediaPlayer.settings.volume = TrackBar_Volume.Value
+        TrackBar_Volume.Visible = True
     End Sub
 End Class
